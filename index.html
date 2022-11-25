@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Your first HTML form</title>
+    <title>login</title>
     <style>
         form {
             /* 居中表单 */
@@ -75,36 +75,18 @@
 </head>
 
 <body>
-    <form action="http://chenhaotian.top" method="get">
-        <div>
-            <label for="say">What greeting do you want to say?</label>
-            <input name="say" id="say" value="Hi">
-        </div>
-        <div>
-            <label for="to">Who do you want to say it to?</label>
-            <input name="to" id="to" value="Mom">
-        </div>
-        <div>
-            <button>Send my greetings</button>
-        </div>
-    </form>
-
-    <form action="http://baidu.com" method="post">
+    <form action="login/login.php" method="post">
         <ul>
             <li>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="user_name" />
             </li>
             <li>
-                <label for="mail">E-mail:</label>
-                <input type="email" id="mail" name="user_mail" />
-            </li>
-            <li>
-                <label for="msg">Message:</label>
-                <textarea id="msg" name="user_message"></textarea>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="user_phone" />
             </li>
             <li class="button">
-                <button type="submit">Send your message</button>
+                <button type="submit">confirm</button>
             </li>
         </ul>
     </form>

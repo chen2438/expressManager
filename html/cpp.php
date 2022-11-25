@@ -1,7 +1,7 @@
 <?php
 $arr = $_POST['arr'];
 if(empty($arr)){
-    echo "You didn't enter any arguments.";
+    echo "Arguments are empty";
 }
 else{
     $command = "./test " . escapeshellcmd($arr);

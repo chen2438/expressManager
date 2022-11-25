@@ -1,12 +1,6 @@
-/*************************************************************************
-    > File Name: mydb.h
-    > Author:fengxin
-    > Mail:903087053@qq.com
-    > Created Time: 2017年07月21日 星期五 15时17分17秒
- ************************************************************************/
-
 #ifndef _MYDB_H
 #define _MYDB_H
+
 #include <mysql/mysql.h>
 
 #include <iostream>
@@ -17,7 +11,7 @@ class MyDB {
    public:
     MyDB();
     ~MyDB();
-    bool initDB(string host, string user, string pwd,
+    bool initDB(string host, string user, string passwd,
                 string db_name);  //连接mysql
     bool exeSQL(string sql);      //执行sql语句
    private:

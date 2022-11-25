@@ -1,10 +1,3 @@
-/*************************************************************************
-> File Name: MyDB.cpp
-> Author:fengxin
-> Mail:903087053@qq.com
-> Created Time: 2017年07月21日 星期五 16时02分51秒
-************************************************************************/
-
 #include "MyDB.h"
 
 #include <iostream>
@@ -21,8 +14,7 @@ MyDB::MyDB() {
 }
 
 MyDB::~MyDB() {
-    if (mysql != NULL)  //关闭数据连接
-    {
+    if (mysql != NULL) {  //关闭数据连接
         mysql_close(mysql);
     }
 }
@@ -44,42 +36,33 @@ bool MyDB::exeSQL(string sql) {
     if (mysql_query(mysql, sql.c_str())) {
         cout << "Query Error: " << mysql_error(mysql);
         return false;
-    } else  // 查询成功
-    {
+    } else {                                 // 查询成功
         result = mysql_store_result(mysql);  //获取结果集
-        if (result)                          // 返回了结果集
-        {
+        if (result) {                        // 返回了结果集
             int num_fields =
                 mysql_num_fields(result);  //获取结果集中总共的字段数，即列数
             int num_rows = mysql_num_rows(result);  //获取结果集中总共的行数
-            for (int i = 0; i < num_rows; i++)  //输出每一行
-            {
+            for (int i = 0; i < num_rows; i++) {  //输出每一行
                 //获取下一行数据
                 row = mysql_fetch_row(result);
                 if (row < 0) break;
-
-                for (int j = 0; j < num_fields; j++)  //输出每一字段
-                {
+                for (int j = 0; j < num_fields; j++) {  //输出每一字段
                     cout << row[j] << "\t\t";
                 }
                 cout << endl;
             }
 
-        } else  // result==NULL
-        {
+        } else {  // result==NULL
             if (mysql_field_count(mysql) ==
-                0)  //代表执行的是update,insert,delete类的非查询语句
-            {
+                0) {  //代表执行的是update,insert,delete类的非查询语句
                 // (it was not a SELECT)
                 int num_rows = mysql_affected_rows(
                     mysql);  //返回update,insert,delete影响的行数
-            } else           // error
-            {
+            } else {         // error
                 cout << "Get result error: " << mysql_error(mysql);
                 return false;
             }
         }
     }
-
     return true;
 }

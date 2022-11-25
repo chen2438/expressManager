@@ -4,7 +4,7 @@ if(empty($arr)){
     echo "Arguments are empty";
 }
 else{
-    $command = "./test " . escapeshellcmd($arr);
+    $command = "./login " . escapeshellcmd($arr);
     $return = passthru($command);
 }
 ?>

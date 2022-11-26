@@ -17,7 +17,7 @@ for ($i = 0; $i < count($output); $i++) {
 }
 echo "Please wait 3 seconds to turn back.\n";
 
-sleep(3);
+// sleep(3);
 header("Location: ../index.php");
 exit;
 // fclose($file);

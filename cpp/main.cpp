@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {  //系统界面传参
             argv[4] = (char*)"recipient";
             recipient.signUp(argv[2], argv[3], argv[4]);
         } else if (strcmp(argv[4], Collector::adminPasswd) == 0) {
-            cout << "Correct password. Register for collector." << endl;
+            cout << "Password correct. Register for collector." << endl;
             Collector collector;
             argv[4] = (char*)"collector";
             collector.signUp(argv[2], argv[3], argv[4]);

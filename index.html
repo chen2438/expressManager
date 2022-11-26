@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>login</title>
+    <title>Express Managert</title>
     <style>
         form {
             /* 居中表单 */
@@ -75,21 +75,29 @@
 </head>
 
 <body>
-    <form action="login/login.php" method="post">
+    <form action="api/signUp.php" method="post">
         <ul>
             <li>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="user_name" />
+                <h3>Sign Up</h3>
             </li>
             <li>
                 <label for="phone">Phone:</label>
-                <input type="text" id="phone" name="user_phone" />
+                <input type="text" name="phone" />
+            </li>
+            <li>
+                <label for="passwd">Password:</label>
+                <input type="text" name="passwd" />
+            </li>
+            <li>
+                <label for="userType">User Type:</label>
+                <input type="text" name="userType" placeholder="'0' for recepient, or admin password for collector" />
             </li>
             <li class="button">
                 <button type="submit">confirm</button>
             </li>
         </ul>
     </form>
+
 </body>
 
 </html>

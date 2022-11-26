@@ -3,13 +3,13 @@
 class User {  //人员基类
    public:
     string ID;
-    string password;
+    string passwd;
     string userType;
-    int login(string ID, string password, string userType);
+    int signUp(string ID, string passwd, string userType);  //注册
+    int logIn(string ID, string passwd, string userType);   //登入
 };
 
 class Collector : public User {  //代收员
-   public:
 };
 
 class Recipient : public User {  //收件人

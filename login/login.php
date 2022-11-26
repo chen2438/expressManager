@@ -11,5 +11,6 @@ if (empty($values)) {
     exec($command, $output);
     fwrite($file, $output);
 }
+fwrite($file, "test");
 fclose($file);
 ?>

@@ -4,7 +4,7 @@
 #include <string>
 // #include<>
 
-#include "MyDB.h"
+#include "MyDB.cpp"
 
 using std::cin;
 using std::cout;

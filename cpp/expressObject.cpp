@@ -12,10 +12,11 @@ int User::signUp(string phone, string passwd, string userType) {
 
     MyDB db;                                        //建立数据库连接
     db.initDB(argv[0], argv[1], argv[2], argv[3]);  // host,user,passwd,dbName
+    db.echoSQL("use expressDB;");
     db.exeSQL("use expressDB;");
-    string cmd = "insert user values('" + phone + "','" + passwd + "','" +
-                 userType + "');";
-    cout << "SQL_CMD:" << cmd << endl;
-    db.exeSQL(cmd);
-    return 1;
+    string sqlCMD = "insert user values('" + phone + "','" + passwd + "','" +
+                    userType + "');";
+    db.echoSQL(sqlCMD);
+    db.exeSQL(sqlCMD);
+    return 0;
 }

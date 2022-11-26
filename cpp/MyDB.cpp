@@ -66,3 +66,5 @@ bool MyDB::exeSQL(string sql) {
     }
     return true;
 }
+
+void MyDB::echoSQL(string SQL) { cout << "SQL_CMD: " << SQL << endl; }

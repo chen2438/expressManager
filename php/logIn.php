@@ -12,7 +12,7 @@ for ($i = 0; $i < count($output); $i++) {
     echo '<br>';
 }
 if ($output[count($output) - 1] == "Login successful!") {
-    header("refresh: 5;url=../recepient?phone=" . $phone . ".html");
+    header("refresh: 5;url=../recepient.html?phone=" . $phone);
     echo "PHP: Please wait 3 seconds to refresh.";
     echo '<br>';
 } else {

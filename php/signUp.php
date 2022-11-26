@@ -1,6 +1,4 @@
 <?php
-
-
 $phone = $_POST['phone'];
 $passwd = $_POST['passwd'];
 $userType = $_POST['userType'];
@@ -8,7 +6,7 @@ $userType = $_POST['userType'];
 $values = 'signUp ' . $phone . ' ' . $passwd . ' ' . $userType;
 
 $command = "../cpp/main " . escapeshellcmd($values);
-echo $command;
+// echo $command;
 exec($command, $output);
 
 // $file = fopen("signUp.txt", "w+") or die("Unable to open file!");

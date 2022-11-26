@@ -5,8 +5,8 @@ class User {  //人员基类
     string ID;
     string passwd;
     string userType;
-    int signUp(string ID, string passwd, string userType);  //注册
-    int logIn(string ID, string passwd, string userType);   //登入
+    int signUp(string phone, string passwd, string userType);  //注册
+    int logIn(string phone, string passwd, string userType);   //登入
 };
 
 class Collector : public User {  //代收员

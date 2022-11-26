@@ -1,3 +1,4 @@
+#include "expressObject.cpp"
 #include "expressObject.h"
 
 int main(int argc, char* argv[]) {  //系统界面传参
@@ -8,6 +9,6 @@ int main(int argc, char* argv[]) {  //系统界面传参
     } else if (argv[1] == "signUp") {
         User user;
         user.signUp(argv[2], argv[3], argv[4]);
-        }
+    }
     return 0;
 }

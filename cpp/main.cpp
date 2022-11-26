@@ -1,5 +1,5 @@
 #include "expressObject.cpp"
-#include "expressObject.h"
+// #include "expressObject.h"
 
 int main(int argc, char* argv[]) {  //系统界面传参
     //参数：本身,执行动作，动作参数

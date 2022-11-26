@@ -5,7 +5,7 @@ $phone = $_POST['phone'];
 $passwd = $_POST['passwd'];
 $userType = $_POST['userType'];
 
-$values = 'signUp' . $phone . ' ' . $passwd . ' ' . $userType;
+$values = 'signUp ' . $phone . ' ' . $passwd . ' ' . $userType;
 
 $command = "../cpp/main " . escapeshellcmd($values);
 echo $command;

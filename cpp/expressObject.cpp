@@ -6,7 +6,6 @@ int User::signUp(string phone, string passwd, string userType) {
     string argv[10];
     int argc = 0;
     while (connectDB >> argv[argc]) {
-        // cout << argv[argc] << endl;
         argc++;
     }
     connectDB.close();
@@ -16,6 +15,7 @@ int User::signUp(string phone, string passwd, string userType) {
     db.exeSQL("use expressDB;");
     string cmd =
         "insert user values(" + phone + "," + passwd + "," + userType + ");";
+    cout << "SQL_CMD:" << cmd << endl;
     db.exeSQL(cmd);
     return 1;
 }

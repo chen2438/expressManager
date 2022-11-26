@@ -4,10 +4,12 @@ int User::signUp(string phone, string passwd, string userType) {
     ifstream connectDB("connectDB.txt", ios::in);  //从文件读取数据库登入信息
     string argv[10];
     int argc = 0;
+
     while (connectDB >> argv[argc]) {
         cout << argv[argc] << endl;
         argc++;
     }
+    cout << 1 << endl;
     connectDB.close();
     return 0;
     MyDB db;                                        //建立数据库连接

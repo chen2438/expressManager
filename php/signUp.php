@@ -16,7 +16,7 @@ for ($i = 0; $i < count($output); $i++) {
     // fwrite($file, $output[$i] . "\n");
 }
 
-header("refresh:5;url=http://www.XXXXX.com");
+header("refresh: 5;Location: ../index.html");
 echo "Please wait 3 seconds to turn back.\n";
 
 exit;

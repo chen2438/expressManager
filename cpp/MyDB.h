@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 class MyDB {
@@ -12,9 +13,9 @@ class MyDB {
     MyDB();
     ~MyDB();
     bool initDB(string host, string user, string passwd,
-                string db_name);  //连接mysql
-    bool exeSQL(string sql);      //执行sql语句
-    void echoSQL(string sql);     //打印执行的SQL语句
+                string db_name);        //连接mysql
+    vector<string> exeSQL(string sql);  //执行sql语句
+    void echoSQL(string sql);           //打印执行的SQL语句
    private:
     MYSQL *mysql;       //连接mysql句柄指针
     MYSQL_RES *result;  //指向查询结果的指针

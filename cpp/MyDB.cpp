@@ -31,40 +31,38 @@ bool MyDB::initDB(string host, string user, string passwd, string db_name) {
     return true;
 }
 
-bool MyDB::exeSQL(string sql) {
-    // mysql_query()执行成功返回0,执行失败返回非0值。
+vector<string> MyDB::exeSQL(string sql) {
+    vector<string> res;
     if (mysql_query(mysql, sql.c_str())) {
         cout << "Query Error: " << mysql_error(mysql);
-        return false;
-    } else {                                 // 查询成功
-        result = mysql_store_result(mysql);  //获取结果集
-        if (result) {                        // 返回了结果集
-            int num_fields =
-                mysql_num_fields(result);  //获取结果集中总共的字段数，即列数
-            int num_rows = mysql_num_rows(result);  //获取结果集中总共的行数
-            for (int i = 0; i < num_rows; i++) {  //输出每一行
-                //获取下一行数据
-                row = mysql_fetch_row(result);
+        exit(0);
+    } else {                                            // 查询成功
+        result = mysql_store_result(mysql);             //获取结果集
+        if (result) {                                   // 返回了结果集
+            int num_fields = mysql_num_fields(result);  //获取结果集的字段数
+            int num_rows = mysql_num_rows(result);  //获取结果集的行数
+            for (int i = 0; i < num_rows; i++) {    //输出每一行
+                row = mysql_fetch_row(result);      //获取下一行数据
                 if (row < 0) break;
+                string t;
                 for (int j = 0; j < num_fields; j++) {  //输出每一字段
-                    cout << row[j] << "\t\t";
+                    // cout << row[j] << " ";
+                    t = t + row[j] + " ";
                 }
-                cout << endl;
+                res.push_back(t);
+                // cout << endl;
             }
 
-        } else {  // result==NULL
-            if (mysql_field_count(mysql) ==
-                0) {  //代表执行的是update,insert,delete类的非查询语句
-                // (it was not a SELECT)
-                int num_rows = mysql_affected_rows(
-                    mysql);  //返回update,insert,delete影响的行数
-            } else {         // error
+        } else {                                  // result==NULL
+            if (mysql_field_count(mysql) == 0) {  //执行的不是 select 语句
+                int num_rows = mysql_affected_rows(mysql);  //返回行数
+            } else {                                        // error
                 cout << "Get result error: " << mysql_error(mysql);
-                return false;
+                exit(0);
             }
         }
     }
-    return true;
+    return res;
 }
 
 void MyDB::echoSQL(string SQL) { cout << "SQL_CMD: " << SQL << endl; }

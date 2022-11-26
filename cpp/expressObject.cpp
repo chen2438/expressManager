@@ -1,8 +1,8 @@
 #include "expressObject.h"
 
 vector<string> User::getDBInformation() {
-    ifstream connectDB("/var/www/html/connectDB.in",
-                       ios::in);  //从文件读取数据库登入信息
+    //从文件读取数据库登入信息
+    ifstream connectDB("/var/www/html/connectDB.in", ios::in);
     vector<string> res(10);
     int argc = 0;
     while (connectDB >> res[argc]) {
@@ -14,7 +14,7 @@ vector<string> User::getDBInformation() {
 
 int User::signUp(string phone, string passwd, string userType) {
     vector<string> argv = getDBInformation();
-    MyDB db;                                        //建立数据库连接
+    MyDB db;
     db.initDB(argv[0], argv[1], argv[2], argv[3]);  // host,user,passwd,dbName
     db.echoSQL("use expressDB;");
     db.exeSQL("use expressDB;");
@@ -26,22 +26,19 @@ int User::signUp(string phone, string passwd, string userType) {
 }
 
 int User::logIn(string phone, string passwd) {
-    ifstream connectDB("/var/www/html/connectDB.in",
-                       ios::in);  //从文件读取数据库登入信息
-    string argv[10];
-    int argc = 0;
-    while (connectDB >> argv[argc]) {
-        argc++;
-    }
-    connectDB.close();
-
-    MyDB db;                                        //建立数据库连接
+    vector<string> argv = getDBInformation();
+    MyDB db;
     db.initDB(argv[0], argv[1], argv[2], argv[3]);  // host,user,passwd,dbName
     db.echoSQL("use expressDB;");
     db.exeSQL("use expressDB;");
-    string sqlCMD = "insert user values('" + phone + "','" + passwd + "','" +
-                    userType + "');";
+    string sqlCMD = "select passwd from user where phone = '" + phone + "';";
     db.echoSQL(sqlCMD);
-    db.exeSQL(sqlCMD);
-    return 0;
+    vector<string> res = db.exeSQL(sqlCMD);
+    if (res[0] == passwd) {
+        cout << "Password correct." << endl;
+        return 1;
+    } else {
+        cout << "Password wrong." << endl;
+        return 0;
+    }
 }

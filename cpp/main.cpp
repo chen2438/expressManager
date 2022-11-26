@@ -12,13 +12,25 @@ int main(int argc, char* argv[]) {  //系统界面传参
             Recipient recipient;
             argv[4] = (char*)"recipient";
             recipient.signUp(argv[2], argv[3], argv[4]);
+            cout << "Registration successful!" << endl;
         } else if (strcmp(argv[4], Collector::adminPasswd) == 0) {
             cout << "Password correct. Register for collector." << endl;
             Collector collector;
             argv[4] = (char*)"collector";
             collector.signUp(argv[2], argv[3], argv[4]);
+            cout << "Registration successful!" << endl;
+        } else {
+            cout << "Admin password wrong." << endl;
+            cout << "Registration failed!" << endl;
         }
-        cout << "Registration successful!" << endl;
+    } else if (strcmp(argv[1], "logIn") == 0) {
+        cout << "Start Login." << endl;
+        User user;
+        if (user.logIn(argv[2], argv[3]) == 1) {
+            cout << "Registration successful!" << endl;
+        } else {
+            cout << "Login failed!" << endl;
+        }
     }
     return 0;
 }

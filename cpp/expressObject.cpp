@@ -8,7 +8,7 @@ int User::signUp(string phone, string passwd, string userType) {
         argc++;
     }
     connectDB.close();
-
+    return 0;
     MyDB db;                                        //建立数据库连接
     db.initDB(argv[0], argv[1], argv[2], argv[3]);  // host,user,passwd,dbName
     string cmd =

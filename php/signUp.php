@@ -5,6 +5,7 @@ $userType = $_POST['userType'];
 
 $values = 'signUp ' . $phone . ' ' . $passwd . ' ' . $userType;
 $command = "../cpp/main " . escapeshellcmd($values);
+$output = array();
 exec($command, $output);
 
 for ($i = 0; $i < count($output); $i++) {

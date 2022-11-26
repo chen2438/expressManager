@@ -4,6 +4,7 @@ $passwd = $_POST['passwd'];
 
 $values = 'logIn ' . $phone . ' ' . $passwd;
 $command = "../cpp/main " . escapeshellcmd($values);
+$output = array();
 exec($command, $output);
 
 for ($i = 0; $i < count($output); $i++) {

@@ -12,7 +12,7 @@ exec($command, $output);
 // $file = fopen("signUp.txt", "w+") or die("Unable to open file!");
 for ($i = 0; $i < count($output); $i++) {
     echo 'C++: ' . $output[$i];
-    echo PHP_EOL;
+    echo '<br>';
     // fwrite($file, $output[$i] . "\n");
 }
 

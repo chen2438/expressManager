@@ -1,6 +1,6 @@
 #include "expressObject.cpp"
 
-char* Collector::adminPasswd = "admin";
+const char* Collector::adminPasswd = "admin";
 
 int main(int argc, char* argv[]) {  //系统界面传参
     if (argc == 1) {

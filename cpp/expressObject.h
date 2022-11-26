@@ -11,7 +11,7 @@ class User {  //人员基类
 
 class Collector : public User {  //代收员
    public:
-    static char* adminPasswd;
+    static const char* adminPasswd;
 };
 
 class Recipient : public User {  //收件人

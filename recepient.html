@@ -10,8 +10,10 @@
 
 <body>
     <script type="text/javascript">
-        phone = document.querySelector('.phone');
-        phone.textContent = "Phone:" + getQuery("phone");
+        window.addEventListener("load", function () {
+            phone = document.querySelector('.phone');
+            phone.textContent = "Phone: " + getQuery("phone");
+        });
     </script>
     <form action="php/signUp.php" method="post">
         <ul>
@@ -19,7 +21,7 @@
                 <h3>Recepient Client</h3>
             </li>
             <li>
-                <div class="phone">Phone:</div>
+                <label class="phone">Phone:</label>
             </li>
             <li>
                 <label for="passwd">Password:</label>

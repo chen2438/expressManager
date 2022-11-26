@@ -13,6 +13,7 @@ int User::signUp(string phone, string passwd, string userType) {
 
     MyDB db;                                        //建立数据库连接
     db.initDB(argv[0], argv[1], argv[2], argv[3]);  // host,user,passwd,dbName
+    db.exeSQL("use expressDB;");
     string cmd =
         "insert user values(" + phone + "," + passwd + "," + userType + ");";
     db.exeSQL(cmd);

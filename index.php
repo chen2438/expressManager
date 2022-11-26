@@ -71,11 +71,13 @@
             margin-left: .5em;
         }
     </style>
-
 </head>
 
 <body>
-    <form action="api/signUp.php" method="post">
+    <?php
+    exec("g++ cpp/MyDB.cpp cpp/main.cpp -o cpp/main `mysql_config --cflags --libs`");
+    ?>
+    <form action="php/signUp.php" method="post">
         <ul>
             <li>
                 <h3>Sign Up</h3>

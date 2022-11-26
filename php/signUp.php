@@ -11,13 +11,13 @@ exec($command, $output);
 
 // $file = fopen("signUp.txt", "w+") or die("Unable to open file!");
 for ($i = 0; $i < count($output); $i++) {
-    echo $output[$i];
+    echo 'C++: ' . $output[$i];
     echo PHP_EOL;
     // fwrite($file, $output[$i] . "\n");
 }
 
 header("refresh: 5;url=../index.html");
-echo "Please wait 3 seconds to turn back.\n";
+echo "PHP: Please wait 3 seconds to turn back.\n";
 
 exit;
 // fclose($file);

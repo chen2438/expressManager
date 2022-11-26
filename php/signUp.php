@@ -10,8 +10,9 @@ $command = "../cpp/main " . escapeshellcmd($values);
 exec($command, $output);
 
 // $file = fopen("signUp.txt", "w+") or die("Unable to open file!");
-// for ($i = 0; $i < count($output); $i++) {
-//     fwrite($file, $output[$i] . "\n");
-// }
+for ($i = 0; $i < count($output); $i++) {
+    echo $output[$i];
+    // fwrite($file, $output[$i] . "\n");
+}
 // fclose($file);
 ?>

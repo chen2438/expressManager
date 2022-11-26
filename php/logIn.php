@@ -5,7 +5,6 @@ $passwd = $_POST['passwd'];
 $values = 'logIn ' . $phone . ' ' . $passwd;
 
 $command = "../cpp/main " . escapeshellcmd($values);
-// echo $command;
 exec($command, $output);
 
 // $file = fopen("signUp.txt", "w+") or die("Unable to open file!");

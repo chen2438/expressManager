@@ -31,12 +31,19 @@ int User::logIn(string phone, string passwd) {
     db.initDB(argv[0], argv[1], argv[2], argv[3]);  // host,user,passwd,dbName
     db.echoSQL("use expressDB;");
     db.exeSQL("use expressDB;");
-    string sqlCMD = "select passwd from user where phone = '" + phone + "';";
+    string sqlCMD =
+        "select passwd,userType from user where phone = '" + phone + "';";
     db.echoSQL(sqlCMD);
     vector<string> res = db.exeSQL(sqlCMD);
-    if (res[0] == passwd + " ") {
+    if (res[0].substr(0, passwd.size()) == passwd) {
         cout << "Password correct." << endl;
-        return 1;
+        if (res[0].substr(passwd.size() + 1, 1) == "r") {
+            cout << "This is a recepient account." << endl;
+            return 1;
+        } else {
+            cout << "This is a collector account." << endl;
+            return 2;
+        }
     } else {
         cout << "Password wrong." << endl;
         return 0;

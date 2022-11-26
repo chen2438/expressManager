@@ -15,10 +15,10 @@ for ($i = 0; $i < count($output); $i++) {
     echo "\n";
     // fwrite($file, $output[$i] . "\n");
 }
+
+header("refresh:5;url=http://www.XXXXX.com");
 echo "Please wait 3 seconds to turn back.\n";
 
-// sleep(3);
-header("Location: ../index.php");
 exit;
 // fclose($file);
 ?>

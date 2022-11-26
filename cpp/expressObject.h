@@ -10,6 +10,8 @@ class User {  //人员基类
 };
 
 class Collector : public User {  //代收员
+   public:
+    const string adminPasswd = "admin";
 };
 
 class Recipient : public User {  //收件人

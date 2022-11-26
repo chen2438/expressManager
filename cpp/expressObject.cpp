@@ -6,6 +6,7 @@ int User::signUp(string phone, string passwd, string userType) {
     int argc = 0;
 
     while (connectDB >> argv[argc]) {
+        if (argv[argc][0] == '0') break;
         cout << argv[argc] << endl;
         argc++;
     }

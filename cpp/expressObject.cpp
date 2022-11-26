@@ -5,6 +5,7 @@ int User::signUp(string phone, string passwd, string userType) {
     string argv[10];
     int argc = 0;
     while (connectDB >> argv[argc]) {
+        cout << argv[argc] << endl;
         argc++;
     }
     connectDB.close();

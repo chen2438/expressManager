@@ -12,10 +12,11 @@ exec($command, $output);
 // $file = fopen("signUp.txt", "w+") or die("Unable to open file!");
 for ($i = 0; $i < count($output); $i++) {
     echo $output[$i];
+    echo "\n";
     // fwrite($file, $output[$i] . "\n");
 }
-echo "Please wait 3 seconds to turn back.";
-exit;
+echo "Please wait 3 seconds to turn back.\n";
+
 sleep(3);
 header("Location: ../index.php");
 exit;

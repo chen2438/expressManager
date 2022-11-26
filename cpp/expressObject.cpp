@@ -39,6 +39,7 @@ int User::logIn(string phone, string passwd) {
     // cout << passwd << endl;
     if (res[0][0] == passwd) {
         cout << "Password correct." << endl;
+        cout << res[0][1] << endl;
         if (res[0][1] == "recepient") {
             cout << "This is a recepient account." << endl;
             return 1;

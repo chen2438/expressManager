@@ -1,4 +1,4 @@
-#include "expressObject.h";
+#include "expressObject.h"
 
 int User::signUp(string phone, string passwd, string userType) {
     ifstream connectDB("connectDB.txt", ios::in);  //从文件读取数据库登入信息

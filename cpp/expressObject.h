@@ -1,4 +1,4 @@
-#include "head.h";
+#include "head.h"
 
 class User {  //人员基类
    public:

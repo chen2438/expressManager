@@ -75,7 +75,7 @@
 
 <body>
     <?php
-    exec("g++ cpp/MyDB.cpp cpp/main.cpp -o cpp/main `mysql_config --cflags --libs`");
+    // exec("g++ cpp/MyDB.cpp cpp/main.cpp -o cpp/main `mysql_config --cflags --libs`");
     ?>
     <form action="php/signUp.php" method="post">
         <ul>

@@ -9,7 +9,7 @@ if (empty($values)) {
     $command = "./login " . escapeshellcmd($values);
     exec($command, $output);
     for ($i = 0; $i < count($output); $i++) {
-        fwrite($file, $output[$i]);
+        fwrite($file, $output[$i] . "\n");
     }
 }
 fclose($file);

@@ -31,8 +31,8 @@ bool MyDB::initDB(string host, string user, string passwd, string db_name) {
     return true;
 }
 
-vector<string> MyDB::exeSQL(string sql) {
-    vector<string> res;
+vector<vector<string>> MyDB::exeSQL(string sql) {
+    vector<vector<string>> res;
     if (mysql_query(mysql, sql.c_str())) {
         cout << "Query Error: " << mysql_error(mysql);
         exit(0);
@@ -44,10 +44,10 @@ vector<string> MyDB::exeSQL(string sql) {
             for (int i = 0; i < num_rows; i++) {    //输出每一行
                 row = mysql_fetch_row(result);      //获取下一行数据
                 if (row < 0) break;
-                string t;
+                vector<string> t;
                 for (int j = 0; j < num_fields; j++) {  //输出每一字段
                     // cout << row[j] << " ";
-                    t = t + row[j] + " ";
+                    t.push_back(row[j]);
                 }
                 res.push_back(t);
                 // cout << endl;

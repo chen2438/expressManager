@@ -34,12 +34,12 @@ int User::logIn(string phone, string passwd) {
     string sqlCMD =
         "select passwd,userType from user where phone = '" + phone + "';";
     db.echoSQL(sqlCMD);
-    vector<string> res = db.exeSQL(sqlCMD);
-    cout << res[0].substr(0, passwd.size()) << endl;
-    cout << passwd << endl;
-    if (res[0].substr(0, passwd.size()) == passwd) {
+    vector<vector<string>> res = db.exeSQL(sqlCMD);
+    // cout << res[0].substr(0, passwd.size()) << endl;
+    // cout << passwd << endl;
+    if (res[0][0] == passwd) {
         cout << "Password correct." << endl;
-        if (res[0].substr(passwd.size() + 1, 1) == "r") {
+        if (res[0][1] == "recepient") {
             cout << "This is a recepient account." << endl;
             return 1;
         } else {

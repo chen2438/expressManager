@@ -15,6 +15,7 @@ for ($i = 0; $i < count($output); $i++) {
     // fwrite($file, $output[$i] . "\n");
 }
 echo "Please wait 3 seconds to turn back.";
+exit;
 sleep(3);
 header("Location: ../index.php");
 exit;

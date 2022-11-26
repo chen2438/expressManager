@@ -34,6 +34,7 @@ int User::logIn(string phone, string passwd) {
     string sqlCMD = "select passwd from user where phone = '" + phone + "';";
     db.echoSQL(sqlCMD);
     vector<string> res = db.exeSQL(sqlCMD);
+    cout << res[0] << endl;
     if (res[0] == passwd) {
         cout << "Password correct." << endl;
         return 1;

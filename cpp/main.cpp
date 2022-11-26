@@ -7,9 +7,9 @@ int main(int argc, char* argv[]) {  //系统界面传参
         // codes
 
     } else if (argv[1] == "signUp") {
-        ofstream out("main.out", ios::out | ios::trunc);
-        out << argv[2] << argv[3] << argv[4];
-        out.close();
+        // ofstream out("main.out", ios::out | ios::trunc);
+        // out << argv[2] << argv[3] << argv[4];
+        // out.close();
         User user;
         user.signUp(argv[2], argv[3], argv[4]);
     }

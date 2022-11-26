@@ -7,7 +7,7 @@ $userType = $_POST['userType'];
 
 $values = 'signUp' . $phone . ' ' . $passwd . ' ' . $userType;
 
-$command = "./main " . escapeshellcmd($values);
+$command = "../cpp/main " . escapeshellcmd($values);
 exec($command, $output);
 for ($i = 0; $i < count($output); $i++) {
     fwrite($file, $output[$i] . "\n");

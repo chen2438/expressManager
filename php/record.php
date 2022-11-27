@@ -2,7 +2,7 @@
 $argv = "record";
 for ($i = 0; $i < 12; $i++) {
     $tmp = 'r0';
-    $argv = $argv . ' ' . $_post[$tmp];
+    $argv = $argv . ' ' . $_post['r0'];
     echo $argv;
     echo '<br>';
 }

@@ -55,13 +55,14 @@ string ExpressManager::getPickupID(char* argv[]) {  //生成取件码
     // 2位快递公司缩写+后2位快递单号+收件人后2位手机号+重量模100+2位时间戳
     cout << "debug p1" << endl;
     string company = argv[2];
+    cout << "debug p2" << endl;
     string expressID = argv[0];
     expressID = expressID.substr(expressID.size() - 2, 2);
     string receiverPhone = argv[5];
     receiverPhone = receiverPhone.substr(receiverPhone.size() - 2, 2);
     string weight = argv[3];
     weight = weight.substr(weight.size() - 2, 2);
-    cout << "debug p2" << endl;
+
     string nowTime = to_string(time(0));  // 1970 到现在经过秒数
     nowTime = nowTime.substr(nowTime.size() - 2, 2);
     string pickupID = company + expressID + receiverPhone + weight + nowTime;

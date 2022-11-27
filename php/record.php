@@ -1,7 +1,7 @@
 <?php
 $argv = "record";
 for ($i = 0; $i < 12; $i++) {
-    $argv = $argv . ' ' . $_post[(string) ($i)];
+    $argv = $argv . ' ' . $_post["r" . (string) ($i)];
 }
 
 $command = "../cpp/main " . escapeshellcmd($argv);

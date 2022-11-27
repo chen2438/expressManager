@@ -30,8 +30,10 @@ int main(int argc, char* argv[]) {  //系统界面传参
         int res = user.logIn(argv + 2);
         if (res == 1) {
             cout << "Login successful!" << endl;
+            cout << "Recipient, welcome!" << endl;
         } else if (res == 2) {
             cout << "Login successful!" << endl;
+            cout << "Collector, welcome!" << endl;
         } else {
             cout << "Login failed!" << endl;
         }

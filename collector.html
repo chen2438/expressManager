@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Express Managert: Collector Page</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/script.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        window.addEventListener("load", function () {
+            phone = document.querySelector('.phone');
+            phone.textContent = "Your Phone: " + getQuery("phone");
+        });
+    </script>
+    <form action="php/record.php" method="post">
+        <ul>
+            <li>
+                <h3>Collector: Record Express</h3>
+            </li>
+            <li>
+                <div class="phone">Your Phone: </div>
+            </li>
+            <li>
+                <label for="r0">expressID</label>
+                <input type="text" name="r1" />
+            </li>
+            <li>
+                <label for="r1">pickupID</label>
+                <input type="text" name="r2" value="auto-generated (read only)" readonly />
+            </li>
+            <li>
+                <label for="r2">company</label>
+                <input type="text" name="r3" placeholder="please input Abbr." />
+            </li>
+            <li>
+                <label for="r3">weight</label>
+                <input type="text" name="r4" />
+            </li>
+            <li>
+                <label for="r4">receiver</label>
+                <input type="text" name="r5" />
+            </li>
+            <li>
+                <label for="r5">receiverPhone</label>
+                <input type="text" name="r6" />
+            </li>
+            <li>
+                <label for="r6">receiverAddress</label>
+                <input type="text" name="r7" />
+            </li>
+            <li>
+                <label for="r7">receiverZip</label>
+                <input type="text" name="r8" />
+            </li>
+            <li>
+                <label for="r8">sender</label>
+                <input type="text" name="r9" />
+            </li>
+            <li>
+                <label for="r9">senderPhone</label>
+                <input type="text" name="r10" />
+            </li>
+            <li>
+                <label for="r10">senderAddress</label>
+                <input type="text" name="r11" />
+            </li>
+            <li>
+                <label for="r11">senderZip</label>
+                <input type="text" name="r12" />
+            </li>
+            <li class="button">
+                <button type="submit">confirm</button>
+            </li>
+        </ul>
+    </form>
+
+</body>
+
+</html>

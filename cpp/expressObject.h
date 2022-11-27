@@ -23,6 +23,7 @@ class ExpressManager {  //快件管理
         char* argv[]);  // expressID, pickupID, company, weight, receiver,
                         // receiverPhone,receiverAddress, receiverZip, sender,
                         // senderPhone, senderAddress,senderZip;
+    string getPickupID(char* argv[]);  //生成取件码
 };
 
 class UserInterface {  //系统界面

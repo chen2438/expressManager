@@ -24,10 +24,10 @@ int User::logIn(char* argv[]) {  //登录:phone,passwd
         cout << "Password correct." << endl;
         // cout << res[0][1].size() << endl;
         if (res[0][1][0] == 'r') {
-            cout << "This is a recipient account." << endl;
+            // cout << "This is a recipient account." << endl;
             return 1;
         } else {
-            cout << "This is a collector account." << endl;
+            // cout << "This is a collector account." << endl;
             return 2;
         }
     } else {
@@ -40,6 +40,20 @@ int ExpressManager::record(char* argv[]) {
     MyDB db;
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");
+    argv[1] = (char*)getPickupID(argv + 0).c_str();
     db.insert("express", 12, argv + 0);
     return 0;
+}
+
+string ExpressManager::getPickupID(char* argv[]) {  //生成取件码
+    // 2位快递公司缩写+后4位快递单号+收件人后4位手机号+4位时间戳
+    string company = argv[2];
+    string expressID = argv[0];
+    expressID = expressID.substr(expressID.size() - 4, 4);
+    string receiverPhone = argv[5];
+    receiverPhone = receiverPhone.substr(receiverPhone.size() - 4, 4);
+    string nowTime = to_string(time(0));  // 1970 到现在经过秒数
+    nowTime = nowTime.substr(nowTime.size() - 4, 4);
+    string pickupID = company + expressID + receiverPhone + nowTime;
+    return pickupID;
 }

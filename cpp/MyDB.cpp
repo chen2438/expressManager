@@ -1,5 +1,6 @@
 #include "MyDB.h"
 
+#include <fstream>
 #include <iostream>
 #include <string>
 
@@ -32,6 +33,7 @@ bool MyDB::initDB(vector<string> argv) {  //连接mysql:host,user,passwd,db_name
 }
 
 vector<vector<string>> MyDB::exeSQL(string sql) {
+    echoSQL(sql);
     vector<vector<string>> res;
     if (mysql_query(mysql, sql.c_str())) {
         cout << "Query Error: " << mysql_error(mysql);
@@ -66,3 +68,25 @@ vector<vector<string>> MyDB::exeSQL(string sql) {
 }
 
 void MyDB::echoSQL(string SQL) { cout << "SQL_CMD: " << SQL << endl; }
+
+vector<string> MyDB::getDBInfo() {
+    //从文件读取数据库登入信息
+    ifstream connectDB("/var/www/html/connectDB.in", ios::in);
+    vector<string> res(10);
+    int cnt = 0;
+    while (connectDB >> res[cnt]) {
+        cnt++;
+    }
+    connectDB.close();
+    return res;
+}
+
+int MyDB::insert(string table, int argc, char* argv[]) {  // insert,限定字符串
+    string sqlCMD = "insert " + table + "values(";
+    for (int i = 0; i < argc - 1; i++) {
+        sqlCMD = sqlCMD + "'" + (string)argv[i] + "',";
+    }
+    sqlCMD = sqlCMD + "'" + (string)argv[argc - 1] + "')";
+    exeSQL(sqlCMD);
+    return 0;
+}

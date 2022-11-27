@@ -12,13 +12,13 @@ int main(int argc, char* argv[]) {  //系统界面传参
             cout << "Register for recipient." << endl;
             Recipient recipient;
             argv[4] = (char*)"recipient";
-            recipient.signUp(argv[2], argv[3], argv[4]);
+            recipient.signUp(argv + 2);
             cout << "Registration successful!" << endl;
         } else if (strcmp(argv[4], Collector::adminPasswd) == 0) {
             cout << "Password correct. Register for collector." << endl;
             Collector collector;
             argv[4] = (char*)"collector";
-            collector.signUp(argv[2], argv[3], argv[4]);
+            collector.signUp(argv + 2);
             cout << "Registration successful!" << endl;
         } else {
             cout << "Admin password wrong." << endl;
@@ -35,6 +35,8 @@ int main(int argc, char* argv[]) {  //系统界面传参
         } else {
             cout << "Login failed!" << endl;
         }
+    } else if (strcmp(argv[1], "recordExpress") == 0) {  //录入
+        cout << "Start recording." << endl;
     }
     return 0;
 }

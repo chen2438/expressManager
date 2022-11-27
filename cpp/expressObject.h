@@ -15,15 +15,11 @@ class Recipient : public User {  //收件人
 };
 
 class Express {  //快件
-   public:
-    string expressID, pickupID, company, weight, receiver, receiverPhone,
-        receiverAddress, receiverZip, sender, senderPhone, senderAddress,
-        senderZip;
 };
 
 class ExpressManager {  //快件管理
    public:
-    int recordExpress(
+    int record(
         char* argv[]);  // expressID, pickupID, company, weight, receiver,
                         // receiverPhone,receiverAddress, receiverZip, sender,
                         // senderPhone, senderAddress,senderZip;

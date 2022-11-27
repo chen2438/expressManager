@@ -25,7 +25,7 @@ int main(int argc, char* argv[]) {  //系统界面传参
             cout << "Registration failed!" << endl;
         }
     } else if (strcmp(argv[1], "logIn") == 0) {  //登录
-        cout << "Start Login." << endl;
+        cout << "Start login." << endl;
         User user;
         int res = user.logIn(argv + 2);
         if (res == 1) {
@@ -35,8 +35,11 @@ int main(int argc, char* argv[]) {  //系统界面传参
         } else {
             cout << "Login failed!" << endl;
         }
-    } else if (strcmp(argv[1], "recordExpress") == 0) {  //录入
+    } else if (strcmp(argv[1], "record") == 0) {  //录入
         cout << "Start recording." << endl;
-        }
+        ExpressManager manager;
+        manager.record(argv + 2);
+        cout << "Recording successfull!" << endl;
+    }
     return 0;
 }

@@ -36,7 +36,7 @@ int User::logIn(char* argv[]) {  //登录:phone,passwd
     }
 }
 
-int ExpressManager::recordExpress(char* argv[]) {
+int ExpressManager::record(char* argv[]) {
     MyDB db;
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");

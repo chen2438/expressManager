@@ -40,12 +40,13 @@ int ExpressManager::record(char* argv[]) {
     MyDB db;
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");
-    cout << "debug" << endl;
+    cout << "debug1" << endl;
     argv[1] = (char*)getPickupID(argv + 0).c_str();
+    cout << "debug2" << endl;
     for (int i = 0; i < 12; i++) {
         cout << argv[i] << endl;
     }
-    cout << "debug" << endl;
+    cout << "debug3" << endl;
     db.insert("express", 12, argv + 0);
     return 0;
 }

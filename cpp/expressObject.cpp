@@ -44,6 +44,7 @@ int ExpressManager::record(char* argv[]) {
     for (int i = 0; i < 12; i++) {
         cout << argv[i] << endl;
     }
+    cout << "debug" << endl;
     db.insert("express", 12, argv + 0);
     return 0;
 }

@@ -2,9 +2,15 @@
 $phone = $_POST['phone'];
 $passwd = $_POST['passwd'];
 
-$values = 'logIn ' . $phone . ' ' . $passwd;
-$command = "../cpp/main " . escapeshellcmd($values);
+echo "PHP: Get POST infomation";
+echo '<br>';
+
+$command = "../cpp/main " . escapeshellcmd('logIn ' . $phone . ' ' . $passwd);
 $output = array();
+
+echo "PHP: exec " . $command;
+echo '<br>';
+
 exec($command, $output);
 
 for ($i = 0; $i < count($output); $i++) {

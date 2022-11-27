@@ -3,9 +3,16 @@ $phone = $_POST['phone'];
 $passwd = $_POST['passwd'];
 $userType = $_POST['userType'];
 
+echo "PHP: Get POST infomation";
+echo '<br>';
+
 $values = 'signUp ' . $phone . ' ' . $passwd . ' ' . $userType;
 $command = "../cpp/main " . escapeshellcmd($values);
 $output = array();
+
+echo "PHP: exec " . $command;
+echo '<br>';
+
 exec($command, $output);
 
 for ($i = 0; $i < count($output); $i++) {

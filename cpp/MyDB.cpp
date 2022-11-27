@@ -82,7 +82,7 @@ vector<string> MyDB::getDBInfo() {
 }
 
 int MyDB::insert(string table, int argc, char* argv[]) {  // insert,限定字符串
-    string sqlCMD = "insert " + table + "values(";
+    string sqlCMD = "insert " + table + " values(";
     for (int i = 0; i < argc - 1; i++) {
         sqlCMD = sqlCMD + "'" + (string)argv[i] + "',";
     }

@@ -2,12 +2,9 @@
 
 class User {  //人员基类
    public:
-    string ID;
-    string passwd;
-    string userType;
-    int signUp(char* argv[]);                //注册
-    int logIn(string phone, string passwd);  //登入
-    vector<string> getDBInfo();              //读取数据库登入信息
+    int signUp(char* argv[]);    //注册:phone,passwd,userType
+    int logIn(char* argv[]);     //登录:phone,passwd
+    vector<string> getDBInfo();  //读取数据库登录信息
 };
 
 class Collector : public User {  //代收员

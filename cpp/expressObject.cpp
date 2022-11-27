@@ -12,7 +12,7 @@ vector<string> User::getDBInfo() {
     return res;
 }
 
-int User::signUp(char* argv[]) {
+int User::signUp(char* argv[]) {  //注册:phone,passwd,userType
     vector<string> DBInfo = getDBInfo();
     MyDB db;
     db.initDB(DBInfo[0], DBInfo[1], DBInfo[2],
@@ -26,21 +26,22 @@ int User::signUp(char* argv[]) {
     return 0;
 }
 
-int User::logIn(string phone, string passwd) {
-    vector<string> argv = getDBInfo();
+int User::logIn(char* argv[]) {  //登录:phone,passwd
+    vector<string> DBInfo = getDBInfo();
     MyDB db;
-    db.initDB(argv[0], argv[1], argv[2], argv[3]);  // host,user,passwd,dbName
+    db.initDB(DBInfo[0], DBInfo[1], DBInfo[2],
+              DBInfo[3]);  // host,user,passwd,dbName
     db.echoSQL("use expressDB;");
     db.exeSQL("use expressDB;");
-    string sqlCMD =
-        "select passwd,userType from user where phone = '" + phone + "';";
+    string sqlCMD = "select passwd,userType from user where phone = '" +
+                    (string)argv[0] + "';";
     db.echoSQL(sqlCMD);
     vector<vector<string>> res = db.exeSQL(sqlCMD);
     if (res.size() == 0) {
         cout << "Account doesn't exist." << endl;
         return 0;
     }
-    if (res[0][0] == passwd) {
+    if (res[0][0] == (string)argv[1]) {
         cout << "Password correct." << endl;
         // cout << res[0][1].size() << endl;
         if (res[0][1][0] == 'r') {

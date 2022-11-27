@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {  //系统界面传参
     } else if (strcmp(argv[1], "logIn") == 0) {  //登录
         cout << "Start Login." << endl;
         User user;
-        int res = user.logIn(argv[2], argv[3]);
+        int res = user.logIn(argv + 2);
         if (res == 1) {
             cout << "Login successful!" << endl;
         } else if (res == 2) {

@@ -19,11 +19,11 @@ MyDB::~MyDB() {
     }
 }
 
-bool MyDB::initDB(string host, string user, string passwd, string db_name) {
+bool MyDB::initDB(vector<string> argv) {  //连接mysql:host,user,passwd,db_name
     // 函数mysql_real_connect建立一个数据库连接
     // 成功返回MYSQL*连接句柄，失败返回NULL
-    mysql = mysql_real_connect(mysql, host.c_str(), user.c_str(),
-                               passwd.c_str(), db_name.c_str(), 0, NULL, 0);
+    mysql = mysql_real_connect(mysql, argv[0].c_str(), argv[1].c_str(),
+                               argv[2].c_str(), argv[3].c_str(), 0, NULL, 0);
     if (mysql == NULL) {
         cout << "Error: " << mysql_error(mysql);
         exit(1);
@@ -35,7 +35,7 @@ vector<vector<string>> MyDB::exeSQL(string sql) {
     vector<vector<string>> res;
     if (mysql_query(mysql, sql.c_str())) {
         cout << "Query Error: " << mysql_error(mysql);
-        exit(0);
+        exit(1);
     } else {                                            // 查询成功
         result = mysql_store_result(mysql);             //获取结果集
         if (result) {                                   // 返回了结果集
@@ -58,7 +58,7 @@ vector<vector<string>> MyDB::exeSQL(string sql) {
                 int num_rows = mysql_affected_rows(mysql);  //返回行数
             } else {                                        // error
                 cout << "Get result error: " << mysql_error(mysql);
-                exit(0);
+                exit(1);
             }
         }
     }

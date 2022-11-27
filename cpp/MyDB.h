@@ -12,8 +12,7 @@ class MyDB {
    public:
     MyDB();
     ~MyDB();
-    bool initDB(string host, string user, string passwd,
-                string db_name);                //连接mysql
+    bool initDB(vector<string> argv);  //连接mysql:host,user,passwd,db_name
     vector<vector<string>> exeSQL(string sql);  //执行sql语句
     void echoSQL(string sql);                   //打印执行的SQL语句
    private:

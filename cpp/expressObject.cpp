@@ -13,10 +13,8 @@ vector<string> User::getDBInfo() {
 }
 
 int User::signUp(char* argv[]) {  //注册:phone,passwd,userType
-    vector<string> DBInfo = getDBInfo();
     MyDB db;
-    db.initDB(DBInfo[0], DBInfo[1], DBInfo[2],
-              DBInfo[3]);  // host,user,passwd,dbName
+    db.initDB(getDBInfo());  // host,user,passwd,dbName
     db.echoSQL("use expressDB;");
     db.exeSQL("use expressDB;");
     string sqlCMD = "insert user values('" + (string)argv[0] + "','" +
@@ -27,10 +25,8 @@ int User::signUp(char* argv[]) {  //注册:phone,passwd,userType
 }
 
 int User::logIn(char* argv[]) {  //登录:phone,passwd
-    vector<string> DBInfo = getDBInfo();
     MyDB db;
-    db.initDB(DBInfo[0], DBInfo[1], DBInfo[2],
-              DBInfo[3]);  // host,user,passwd,dbName
+    db.initDB(getDBInfo());  // host,user,passwd,dbName
     db.echoSQL("use expressDB;");
     db.exeSQL("use expressDB;");
     string sqlCMD = "select passwd,userType from user where phone = '" +

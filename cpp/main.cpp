@@ -37,6 +37,6 @@ int main(int argc, char* argv[]) {  //系统界面传参
         }
     } else if (strcmp(argv[1], "recordExpress") == 0) {  //录入
         cout << "Start recording." << endl;
-    }
+        }
     return 0;
 }

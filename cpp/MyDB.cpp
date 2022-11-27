@@ -86,7 +86,7 @@ int MyDB::insert(string table, int argc, char* argv[]) {  // insert,限定字符
     for (int i = 0; i < argc - 1; i++) {
         sqlCMD = sqlCMD + "'" + (string)argv[i] + "',";
     }
-    sqlCMD = sqlCMD + "'" + (string)argv[argc - 1] + "')";
+    sqlCMD = sqlCMD + "'" + (string)argv[argc - 1] + "');";
     exeSQL(sqlCMD);
     return 0;
 }

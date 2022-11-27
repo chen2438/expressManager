@@ -1,8 +1,7 @@
 <?php
 $argv = "record";
 for ($i = 0; $i < 12; $i++) {
-    $tmp = 'r0';
-    $argv = $argv . ' ' . $_post['r0'];
+    $argv = $argv . ' ' . $_POST['r' . $i];
     echo $argv;
     echo '<br>';
 }

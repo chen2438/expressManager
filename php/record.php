@@ -1,9 +1,9 @@
 <?php
 $argv = "record";
 for ($i = 0; $i < 12; $i++) {
-    $argv = $argv . ' ' . $_POST['r' . $i];
-    echo $argv;
-    echo '<br>';
+    $post = $_POST['r' . $i];
+    $post = str_replace(" ", "_", $post);
+    $argv = $argv . ' ' . $post;
 }
 
 echo "PHP: Get POST infomation";

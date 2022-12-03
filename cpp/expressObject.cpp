@@ -89,7 +89,7 @@ int ExpressManager::query(char* argv[]) {
     // cout << "num_fields: " << res[0].size() << endl;
     string row;
     for (auto i : column_name) {
-        row += i[0];
+        row = row + " " + i[0];
     }
     cout << row << endl;
     for (auto i : res) {

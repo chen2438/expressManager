@@ -87,17 +87,15 @@ int ExpressManager::query(char* argv[]) {
     cout << "Return for PHP begin:" << endl;
     // cout << "num_rows: " << res.size() << endl;
     // cout << "num_fields: " << res[0].size() << endl;
+    string row;
     for (auto i : column_name) {
-        string row;
-        for (auto j : i) {
-            row += j;
-        }
-        cout << row << endl;
+        row += i[0];
     }
+    cout << row << endl;
     for (auto i : res) {
         string row;
         for (auto j : i) {
-            row += j;
+            row = row + " " + j;
         }
         cout << row << endl;
     }

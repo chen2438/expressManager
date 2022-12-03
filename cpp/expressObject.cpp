@@ -87,7 +87,9 @@ int ExpressManager::query(char* argv[]) {
         exit(0);
     }
     echo("Return for PHP begin:");
-    echo("<table>");
+    echo(
+        "<table style='border-color: #efefef;' border='1px' cellpadding='5px' "
+        "cellspacing='0px' >");
     echo("<caption>Express Query Result</caption>");
     echo("<thead><tr>");
     for (auto i : column_name) {

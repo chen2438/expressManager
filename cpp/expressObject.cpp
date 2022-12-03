@@ -23,7 +23,7 @@ int User::logIn(char* argv[]) {  //登录:phone,passwd
         return 0;
     }
     if (res[0][0] == (string)argv[1]) {
-        echo("Password correct." <<);
+        echo("Password correct.");
         if (res[0][1][0] == 'r') {  // recipient account
             return 1;
         } else {  // collector account

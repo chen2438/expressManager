@@ -35,6 +35,3 @@ for ($i = 0; $i < count($output); $i++) {
     }
 }
 ?>
-<a href="javascript:history.go(-1);">
-    <button>Turn Back</button>
-</a>

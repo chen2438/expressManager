@@ -41,12 +41,12 @@ int main(int argc, char* argv[]) {  //系统界面传参
         cout << "Start recording." << endl;
         ExpressManager manager;
         manager.record(argv + 2);
-        cout << "Recording successfull!" << endl;
+        cout << "Recording successful!" << endl;
     } else if (strcmp(argv[1], "query") == 0) {  //查询
         cout << "Start querying." << endl;
         ExpressManager manager;
         manager.query(argv + 2);
-        cout << "Querying successfull!" << endl;
+        cout << "Querying successful!" << endl;
     }
     return 0;
 }

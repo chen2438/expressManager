@@ -18,7 +18,8 @@ echo '<br>';
 exec($command, $output);
 
 for ($i = 0; $i < count($output); $i++) {
-    echo 'C++: ' . $output[$i];
+    // echo 'C++: ' . $output[$i];
+    echo $output[$i];
     echo '<br>';
 }
 

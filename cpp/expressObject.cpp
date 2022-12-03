@@ -91,7 +91,7 @@ int ExpressManager::query(char* argv[]) {
     echo("<caption>Express Query Result</caption>");
     echo("<thead><tr>");
     for (auto i : column_name) {
-        echo("<th>" + i[0] + "/th");
+        echo("<th>" + i[0] + "</th>");
     }
     echo("</tr></thead>");
     echo("<tbody><tr>");
@@ -102,6 +102,6 @@ int ExpressManager::query(char* argv[]) {
     }
     echo("</tr></tbody>");
     echo("</table>");
-    cout << "<h1>Return for PHP end.</h1>" << endl;
+    cout << "Return for PHP end." << endl;
     return 0;
 }

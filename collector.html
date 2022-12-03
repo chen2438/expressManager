@@ -11,8 +11,10 @@
 <body>
     <script type="text/javascript">
         window.addEventListener("load", function () {
-            phone = document.querySelector('.phone');
-            phone.textContent = "Your Phone: " + getQuery("phone");
+            phone1 = document.querySelector('.phone1');
+            phone2 = document.querySelector('.phone2');
+            phone1.textContent = "Your Phone: " + getQuery("phone");
+            phone2.textContent = phone1.textContent;
         });
     </script>
     <form action="php/record.php" method="post">

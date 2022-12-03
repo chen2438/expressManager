@@ -75,17 +75,31 @@ int ExpressManager::query(char* argv[]) {
         res = db.exeSQL("select * from express where receieverPhone = '" +
                         phone + "';");
     }
+    vector<vector<string>> column_name;
+    column_name = db.exeSQL(
+        "select column_name from information_schema.columns where table_name = "
+        "'express';");
+
     if (res.empty()) {
         cout << "The results do not exist!" << endl;
         exit(0);
     }
     cout << "Return for PHP begin:" << endl;
-    cout << "num_rows: " << res.size() << endl;
-    cout << "num_fields: " << res[0].size() << endl;
-    for (auto i : res) {
+    // cout << "num_rows: " << res.size() << endl;
+    // cout << "num_fields: " << res[0].size() << endl;
+    for (auto i : column_name) {
+        string row;
         for (auto j : i) {
-            cout << j << endl;
+            row += j;
         }
+        cout << row << endl;
+    }
+    for (auto i : res) {
+        string row;
+        for (auto j : i) {
+            row += j;
+        }
+        cout << row << endl;
     }
     cout << "Return for PHP end." << endl;
     return 0;

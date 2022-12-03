@@ -99,6 +99,6 @@ int ExpressManager::query(char* argv[]) {
         }
         cout << row << endl;
     }
-    cout << "Return for PHP end." << endl;
+    cout << "<h1>Return for PHP end.</h1>" << endl;
     return 0;
 }

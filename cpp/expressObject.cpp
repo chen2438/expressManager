@@ -38,7 +38,7 @@ int ExpressManager::record(char* argv[]) {  //录入快递
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");
     argv[1] = (char*)getPickupID(argv + 0).c_str();
-    argv[12] = "no";
+    argv[12] = (char*)"no";
     db.insert("express", 13, argv + 0);
     return 0;
 }

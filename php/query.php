@@ -34,7 +34,7 @@ for ($i = 0; $i < count($output); $i++) {
         echo $output[$i];
     }
 }
-
-// header("refresh: 3;url=../index.html");
-echo "PHP: Please wait 3 seconds to turn back.\n";
 ?>
+<a href="javascript:history.go(-1);">
+    <button>Turn Back</button>
+</a>

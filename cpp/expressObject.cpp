@@ -1,5 +1,7 @@
 #include "expressObject.h"
 
+void echo(string str) { cout << str << endl; }
+
 int User::signUp(char* argv[]) {  //注册:phone,passwd,userType
     MyDB db;
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
@@ -17,18 +19,18 @@ int User::logIn(char* argv[]) {  //登录:phone,passwd
     db.echoSQL(sqlCMD);
     vector<vector<string>> res = db.exeSQL(sqlCMD);
     if (res.size() == 0) {
-        cout << "Account doesn't exist." << endl;
+        echo("Account doesn't exist.");
         return 0;
     }
     if (res[0][0] == (string)argv[1]) {
-        cout << "Password correct." << endl;
+        echo("Password correct." <<);
         if (res[0][1][0] == 'r') {  // recipient account
             return 1;
         } else {  // collector account
             return 2;
         }
     } else {
-        cout << "Password wrong." << endl;
+        echo("Password wrong.");
         return 0;
     }
 }
@@ -81,24 +83,25 @@ int ExpressManager::query(char* argv[]) {
         "'express';");
 
     if (res.empty()) {
-        cout << "The results do not exist!" << endl;
+        echo("The results do not exist!");
         exit(0);
     }
-    cout << "Return for PHP begin:" << endl;
-    // cout << "num_rows: " << res.size() << endl;
-    // cout << "num_fields: " << res[0].size() << endl;
-    string row;
+    echo("Return for PHP begin:");
+    echo("<table>");
+    echo("<caption>Express Query Result</caption>");
+    echo("<thead><tr>");
     for (auto i : column_name) {
-        row = row + " " + i[0];
+        echo("<th>" + i[0] + "/th");
     }
-    cout << row << endl;
+    echo("</tr></thead>");
+    echo("<tbody><tr>");
     for (auto i : res) {
-        string row;
         for (auto j : i) {
-            row = row + " " + j;
+            echo("<td>" + j + "</td>");
         }
-        cout << row << endl;
     }
+    echo("</tr></tbody>");
+    echo("</table>");
     cout << "<h1>Return for PHP end.</h1>" << endl;
     return 0;
 }

@@ -27,6 +27,7 @@ class ExpressManager {  //快件管理
     int query(char* argv[]);           //查询快递
     //参数: expressID, pickupID, phone
     vector<vector<string>> queryAll(char* argv[]);  //查询所有快件
+    void echo(string str);
 };
 
 class UserInterface {  //系统界面

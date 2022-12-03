@@ -73,7 +73,13 @@ int ExpressManager::query(char* argv[]) {
         res =
             db.exeSQL("select * from express where receieverPhone = " + phone);
     }
+    if (res.empty()) {
+        cout << "The results do not exist!" << endl;
+        exit(0);
+    }
     cout << "Return for PHP begin:" << endl;
+    cout << "num_rows: " << res.size() << endl;
+    cout << "num_fields: " << res[0].size() << endl;
     for (auto i : res) {
         for (auto j : i) {
             cout << j << endl;

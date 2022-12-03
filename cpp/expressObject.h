@@ -19,11 +19,14 @@ class Express {  //快件
 
 class ExpressManager {  //快件管理
    public:
-    int record(
-        char* argv[]);  // expressID, pickupID, company, weight, receiver,
-                        // receiverPhone,receiverAddress, receiverZip, sender,
-                        // senderPhone, senderAddress,senderZip;
-    string getPickupID(char* argv[]);  //生成取件码
+    int record(char* argv[]);  //录入快递
+    // 参数: expressID, pickupID, company, weight, receiver,
+    // receiverPhone,receiverAddress, receiverZip, sender,
+    // senderPhone, senderAddress, senderZip, picked
+    string getPickupID(char* argv[]);  //生成取件码, 参数同 record()
+    vector<vector<string>> query(char* argv[]);  //查询快递
+    // 参数: phone, pickupID
+    vector<vector<string>> queryAll(char* argv[]);  //查询所有快件
 };
 
 class UserInterface {  //系统界面

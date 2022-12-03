@@ -22,12 +22,9 @@ int User::logIn(char* argv[]) {  //登录:phone,passwd
     }
     if (res[0][0] == (string)argv[1]) {
         cout << "Password correct." << endl;
-        // cout << res[0][1].size() << endl;
-        if (res[0][1][0] == 'r') {
-            // cout << "This is a recipient account." << endl;
+        if (res[0][1][0] == 'r') {  // recipient account
             return 1;
-        } else {
-            // cout << "This is a collector account." << endl;
+        } else {  // collector account
             return 2;
         }
     } else {
@@ -36,12 +33,13 @@ int User::logIn(char* argv[]) {  //登录:phone,passwd
     }
 }
 
-int ExpressManager::record(char* argv[]) {
+int ExpressManager::record(char* argv[]) {  //录入快递
     MyDB db;
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");
     argv[1] = (char*)getPickupID(argv + 0).c_str();
-    db.insert("express", 12, argv + 0);
+    argv[12] = "no";
+    db.insert("express", 13, argv + 0);
     return 0;
 }
 
@@ -58,4 +56,29 @@ string ExpressManager::getPickupID(char* argv[]) {  //生成取件码
     nowTime = nowTime.substr(nowTime.size() - 2, 2);
     string pickupID = company + expressID + receiverPhone + weight + nowTime;
     return pickupID;
+}
+
+int ExpressManager::query(char* argv[]) {
+    //参数: expressID, pickupID, phone
+    string expressID = argv[0], pickupID = argv[1], phone = argv[2];
+    MyDB db;
+    db.initDB(db.getDBInfo());  // host,user,passwd,dbName
+    db.exeSQL("use expressDB;");
+    vector<vector<string>> res;
+    if (expressID != "null") {
+        res = db.exeSQL("select * from express where expressID = " + expressID);
+    } else if (pickupID != "null") {
+        res = db.exeSQL("select * from express where pickupID = " + pickupID);
+    } else if (phone != "null") {
+        res =
+            db.exeSQL("select * from express where receieverPhone = " + phone);
+    }
+    cout << "Return for PHP begin:" << endl;
+    for (auto i : res) {
+        for (auto j : i) {
+            cout << j << endl;
+        }
+    }
+    cout << "Return for PHP end." << endl;
+    return 0;
 }

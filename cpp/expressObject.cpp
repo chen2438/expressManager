@@ -66,12 +66,14 @@ int ExpressManager::query(char* argv[]) {
     db.exeSQL("use expressDB;");
     vector<vector<string>> res;
     if (expressID != "null") {
-        res = db.exeSQL("select * from express where expressID = " + expressID);
+        res = db.exeSQL("select * from express where expressID = '" +
+                        expressID + "';");
     } else if (pickupID != "null") {
-        res = db.exeSQL("select * from express where pickupID = " + pickupID);
+        res = db.exeSQL("select * from express where pickupID = '" + pickupID +
+                        "';");
     } else if (phone != "null") {
-        res =
-            db.exeSQL("select * from express where receieverPhone = " + phone);
+        res = db.exeSQL("select * from express where receieverPhone = '" +
+                        phone + "';");
     }
     if (res.empty()) {
         cout << "The results do not exist!" << endl;

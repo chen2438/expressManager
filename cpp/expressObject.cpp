@@ -87,6 +87,7 @@ int ExpressManager::query(char* argv[]) {
         exit(0);
     }
     echo("Return for PHP begin:");
+    echo("<br>");
     echo(
         "<table style='border-color: #efefef;' border='1px' cellpadding='5px' "
         "cellspacing='0px' >");
@@ -104,6 +105,7 @@ int ExpressManager::query(char* argv[]) {
     }
     echo("</tr></tbody>");
     echo("</table>");
+    echo("<br>");
     cout << "Return for PHP end." << endl;
     return 0;
 }

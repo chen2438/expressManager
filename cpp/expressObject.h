@@ -29,4 +29,5 @@ class ExpressManager {  // 快件管理
     int queryAll(char* argv[]);  // 查询所有快递, 参数为空(test) TODO
     void stats();                // 信息统计，TODO
     int del(char* argv[]);       // 删除快递,参数:expressID
+    int query
 };

@@ -2,7 +2,7 @@
 
 void echo(string str) { cout << str << endl; }
 
-int User::signUp(char* argv[]) {  //注册:phone,passwd,userType
+int User::signUp(char* argv[]) {  // 注册:phone,passwd,userType
     MyDB db;
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");
@@ -10,7 +10,7 @@ int User::signUp(char* argv[]) {  //注册:phone,passwd,userType
     return 0;
 }
 
-int User::logIn(char* argv[]) {  //登录:phone,passwd
+int User::logIn(char* argv[]) {  // 登录:phone,passwd
     MyDB db;
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");
@@ -35,7 +35,7 @@ int User::logIn(char* argv[]) {  //登录:phone,passwd
     }
 }
 
-int ExpressManager::record(char* argv[]) {  //录入快递
+int ExpressManager::record(char* argv[]) {  // 录入快递
     MyDB db;
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");
@@ -45,7 +45,7 @@ int ExpressManager::record(char* argv[]) {  //录入快递
     return 0;
 }
 
-string ExpressManager::getPickupID(char* argv[]) {  //生成取件码
+string ExpressManager::getPickupID(char* argv[]) {  // 生成取件码
     // 2位快递公司缩写+后2位快递单号+收件人后2位手机号+重量模100+2位时间戳
     string company = argv[2];
     string expressID = argv[0];
@@ -61,7 +61,7 @@ string ExpressManager::getPickupID(char* argv[]) {  //生成取件码
 }
 
 int ExpressManager::query(char* argv[]) {
-    //参数: expressID, pickupID, phone
+    // 参数: expressID, pickupID, phone
     string expressID = argv[0], pickupID = argv[1], phone = argv[2];
     MyDB db;
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
@@ -108,4 +108,12 @@ int ExpressManager::query(char* argv[]) {
     echo("<br>");
     cout << "Return for PHP end." << endl;
     return 0;
+}
+
+int ExpressManager::del(string expressID) {
+    MyDB db;
+    db.initDB(db.getDBInfo());  // host,user,passwd,dbName
+    db.exeSQL("use expressDB;");
+    vector<vector<string>> res;
+    // db.exeSQL("")
 }

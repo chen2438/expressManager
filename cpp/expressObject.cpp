@@ -99,14 +99,16 @@ int ExpressManager::query(char* argv[]) {
         echo("<th>" + i[0] + "</th>");
     }
     echo("</tr></thead>");
-    echo("<tbody><tr>");
-    cout << "---" << res.size() << "---" << endl;
+    echo("<tbody>");
+    // cout << "---" << res.size() << "---" << endl;
     for (auto i : res) {
-                for (auto j : i) {
+        echo("<tr>");
+        for (auto j : i) {
             echo("<td>" + j + "</td>");
         }
+        echo("</tr>");
     }
-    echo("</tr></tbody>");
+    echo("</tbody>");
     echo("</table>");
     echo("<br>");
     cout << "Return for PHP end." << endl;

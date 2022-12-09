@@ -16,7 +16,6 @@ int User::logIn(char* argv[]) {  // 登录:phone,passwd
     db.exeSQL("use expressDB;");
     string sqlCMD = "select passwd,userType from user where phone = '" +
                     (string)argv[0] + "';";
-    db.echoSQL(sqlCMD);
     vector<vector<string>> res = db.exeSQL(sqlCMD);
     if (res.size() == 0) {
         echo("Account doesn't exist.");
@@ -116,6 +115,6 @@ int ExpressManager::del(char* argv[]) {  // 删除快递,参数:expressID
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");
     vector<vector<string>> res;
-    res = db.exeSQL("delete from express where expressID=" + expressID);
+    res = db.exeSQL("delete from express where expressID='" + expressID + ".;");
     return 1;
 }

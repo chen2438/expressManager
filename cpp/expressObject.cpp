@@ -115,6 +115,6 @@ int ExpressManager::del(char* argv[]) {  // 删除快递,参数:expressID
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");
     vector<vector<string>> res;
-    res = db.exeSQL("delete from express where expressID='" + expressID + ".;");
+    res = db.exeSQL("delete from express where expressID='" + expressID + "';");
     return 1;
 }

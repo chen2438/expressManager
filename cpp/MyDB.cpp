@@ -1,11 +1,5 @@
 #include "MyDB.h"
 
-#include <fstream>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 MyDB::MyDB() {
     mysql = mysql_init(NULL);  //初始化数据库连接变量
     if (mysql == NULL) {

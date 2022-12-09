@@ -1,12 +1,16 @@
-#ifndef _MYDB_H
-#define _MYDB_H
+#pragma once
 
 #include <mysql/mysql.h>
 
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
+
+using std::cin;
+using std::cout;
+using std::ifstream;
+using std::string;
+using std::vector;
 
 class MyDB {
    public:
@@ -17,10 +21,7 @@ class MyDB {
     int insert(string table, int argc, char *argv[]);  // insert,限定字符串
     void echoSQL(string sql);    //打印执行的SQL语句
     vector<string> getDBInfo();  //读取数据库登录信息
-   private:
-    MYSQL *mysql;       //连接mysql句柄指针
-    MYSQL_RES *result;  //指向查询结果的指针
-    MYSQL_ROW row;      //按行返回的查询信息
+    MYSQL *mysql;                //连接mysql句柄指针
+    MYSQL_RES *result;           //指向查询结果的指针
+    MYSQL_ROW row;               //按行返回的查询信息
 };
-
-#endif

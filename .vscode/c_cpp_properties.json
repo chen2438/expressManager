@@ -4,8 +4,11 @@
             "name": "Win32",
             "includePath": [
                 "${default}",
-                "C:\\MinGW\\include",
-                "C:\\Program Files\\MySQL\\MySQL Server 8.0\\include"
+                "C:/MinGW/include/**",
+                "C:/MinGW/**",
+                "C:/Program Files/MySQL/MySQL Server 8.0/include/**",
+                "C:/Program Files/MySQL/MySQL Server 8.0/**",
+                "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++"
             ],
             "defines": [
                 "_DEBUG",

@@ -9,12 +9,12 @@ class User {  //人员基类
 class Collector : public User {  //代收员
    public:
     static const char* adminPasswd;  //初始管理员权限密码
+    void changeSuperPassword();      //修改初始管理员权限密码,TODO
+    void changePassword();           //修改密码,TODO
 };
 
 class Recipient : public User {  //收件人
-};
-
-class Express {  //快件
+    void changePassword();       //修改密码,TODO
 };
 
 class ExpressManager {  //快件管理
@@ -27,7 +27,5 @@ class ExpressManager {  //快件管理
     int query(char* argv[]);           //查询快递
     //参数: expressID, pickupID, phone
     vector<vector<string>> queryAll(char* argv[]);  //查询所有快件
-};
-
-class UserInterface {  //系统界面
+    void stats();                                   // 信息统计，TODO
 };

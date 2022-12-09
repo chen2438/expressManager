@@ -13,4 +13,5 @@ using std::cout;
 using std::endl;
 using std::string;
 using std::time;
+using std::to_string;
 using std::vector;

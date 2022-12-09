@@ -27,7 +27,6 @@ class ExpressManager {  // 快件管理
     int query(char* argv[]);           // 查询快递
     // 参数: expressID, pickupID, phone
     int queryAll(char* argv[]);  // 查询所有快递, 参数为空(test) TODO
-    vector<vector<string>> queryAll(char* argv[]);  // 查询所有快件
-    void stats();                                   // 信息统计，TODO
-    int del(char* argv[]);  // 删除快递,参数:expressID
+    void stats();                // 信息统计，TODO
+    int del(char* argv[]);       // 删除快递,参数:expressID
 };

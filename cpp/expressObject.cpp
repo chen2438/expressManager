@@ -100,9 +100,9 @@ int ExpressManager::query(char* argv[]) {
     }
     echo("</tr></thead>");
     echo("<tbody><tr>");
+    cout << "---" << res.size() << "---" << endl;
     for (auto i : res) {
-        cout << "---" << i.size() << "---" << endl;
-        for (auto j : i) {
+                for (auto j : i) {
             echo("<td>" + j + "</td>");
         }
     }

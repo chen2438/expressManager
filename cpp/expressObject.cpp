@@ -40,7 +40,7 @@ int ExpressManager::record(char* argv[]) {  // 录入快递
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");
     argv[1] = (char*)getPickupID(argv + 0).c_str();
-    argv[12] = (char*)"no";
+    argv[12] = (char*)"no";  // picked="no"
     db.insert("express", 13, argv + 0);
     return 0;
 }
@@ -110,10 +110,12 @@ int ExpressManager::query(char* argv[]) {
     return 0;
 }
 
-int ExpressManager::del(string expressID) {
+int ExpressManager::del(char* argv[]) {  // 删除快递,参数:expressID
+    string expressID = argv[0];
     MyDB db;
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");
     vector<vector<string>> res;
-    // db.exeSQL("")
+    res = db.exeSQL("delete from express where expressID=" + expressID);
+    return 1;
 }

@@ -26,8 +26,8 @@ if ($output[count($output) - 1] == "Recipient, welcome!") {
     echo "PHP: Please wait 3 seconds to refresh.";
     echo '<br>';
 } else {
-    header("refresh: 3;url=../html.html");
-    echo "PHP: Please wait 3 seconds to turn back.";
+    // header("refresh: 3;url=../html.html");
+    // echo "PHP: Please wait 3 seconds to turn back.";
     echo '<br>';
 }
 ?>

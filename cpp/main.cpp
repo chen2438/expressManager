@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {  // 系统界面传参
         cout << "Start marking." << endl;
         manager.mark(argv + 2);
         cout << "Mark successful!" << endl;
-    } else if (strcmp(argv[1], "stats") == 0) {  // 标记取件
+    } else if (strcmp(argv[1], "stats") == 0) {  // 统计
         cout << "Start stats." << endl;
         manager.stats(argv + 2);
         cout << "Stats successful!" << endl;

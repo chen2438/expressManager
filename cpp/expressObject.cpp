@@ -142,3 +142,59 @@ void ExpressManager::mark(char* argv[]) {  // 标记取件,参数:pickupID
     db.exeSQL("update express set outDate='" + Time + "' where pickupID='" +
               pickupID + "';");
 }
+
+bool dateLessEqual(const string& date1, const string& date2) {
+    int year1, month1, day1;
+    int year2, month2, day2;
+    std::sscanf(date1.c_str(), "%d-%d-%d", &year1, &month1, &day1);
+    std::sscanf(date2.c_str(), "%d-%d-%d", &year2, &month2, &day2);
+    if (year1 == year2) {
+        if (month1 == month2) {
+            return day1 <= day2;
+        }
+        return month1 <= month2;
+    }
+    return year1 <= year2;
+}
+
+void ExpressManager::stats(char* argv[]) {  // 信息统计
+    string Date = argv[0];
+    MyDB db;
+    db.initDB(db.getDBInfo());
+    db.exeSQL("use expressDB;");
+    vector<vector<string>> res;
+    res = db.exeSQL("select * from express;");
+    int sumIn, sumOut;
+    map<string, int> companyIn, companyOut, companyNoPickup;
+    for (auto row : res) {  // 统计当日总收取和各公司收取
+        if (row[15] == Date) {
+            sumIn++;
+            companyIn[row[2]]++;
+        }
+        if (row[16] == Date) {
+            sumOut++;
+            companyOut[row[2]]++;
+        }
+    }
+    for (auto PSI : companyIn) {  // 计算各公司未取件
+        for (auto row : res) {
+            if (row[2] == PSI.first) {
+                if (dateLessEqual(row[15], Date)) {
+                    companyNoPickup[PSI.first]++;
+                }
+                if (row[16] != "null" and dateLessEqual(row[16], Date)) {
+                    companyNoPickup[PSI.first]--;
+                }
+            }
+        }
+    }
+    echo("当日总取件:" + sumIn);
+    echo("当日总收件:" + sumOut);
+    echo("各快递公司情况:");
+    for (auto PSI : companyIn) {
+        echo("快递公司/收件/取件/未取件:" + PSI.first + "/" +
+             to_string(companyIn[PSI.first]) + "/" +
+             to_string(companyOut[PSI.first]) + "/" +
+             to_string(companyNoPickup[PSI.first]));
+    }
+}

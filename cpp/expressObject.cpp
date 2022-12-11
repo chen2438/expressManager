@@ -77,7 +77,7 @@ void ExpressManager::query(char* argv[]) {
         res = db.exeSQL("select * from express where pickupID = '" + pickupID +
                         "';");
     } else if (phone != "null") {
-        res = db.exeSQL("select * from express where receieverPhone = '" +
+        res = db.exeSQL("select * from express where receiverPhone = '" +
                         phone + "';");
     } else if (picked == "no") {
         res = db.exeSQL("select * from express where picked = 'no';");

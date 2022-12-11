@@ -166,21 +166,21 @@ void ExpressManager::stats(char* argv[]) {  // 信息统计
     res = db.exeSQL("select * from express;");
     int sumIn, sumOut;
     map<string, int> companyIn, companyOut, companyNoPickup;
-    for (auto i : res) {
-        for (auto j : i) {
-            cout << j << " ";
-        }
-        cout << endl;
-    }
+    // for (auto i : res) {
+    //     for (auto j : i) {
+    //         cout << j << " ";
+    //     }
+    //     cout << endl;
+    // }
     return;
     for (auto row : res) {  // 统计当日总收取和各公司收取
-        echo(row[15]);
-        echo(Date);
-        if (row[15] == Date) {
+        // echo(row[13]);
+        // echo(Date);
+        if (row[13] == Date) {
             sumIn++;
             companyIn[row[2]]++;
         }
-        if (row[16] == Date) {
+        if (row[14] == Date) {
             sumOut++;
             companyOut[row[2]]++;
         }
@@ -188,10 +188,10 @@ void ExpressManager::stats(char* argv[]) {  // 信息统计
     for (auto PSI : companyIn) {  // 计算各公司未取件
         for (auto row : res) {
             if (row[2] == PSI.first) {
-                if (dateLessEqual(row[15], Date)) {
+                if (dateLessEqual(row[13], Date)) {
                     companyNoPickup[PSI.first]++;
                 }
-                if (row[16] != "null" and dateLessEqual(row[16], Date)) {
+                if (row[14] != "null" and dateLessEqual(row[14], Date)) {
                     companyNoPickup[PSI.first]--;
                 }
             }

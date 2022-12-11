@@ -38,7 +38,13 @@ void ExpressManager::record(char* argv[]) {  // 录入快递
     db.initDB(db.getDBInfo());
     db.exeSQL("use expressDB;");
     argv[1] = (char*)getPickupID(argv + 0).c_str();
-    argv[12] = (char*)"no";  // picked="no"
+    argv[12] = (char*)"no";  // picked
+    time_t now = time(0);
+    tm* ltm = localtime(&now);
+    string Time = to_string(ltm->tm_year + 1900) + "-" +
+                  to_string(1 + ltm->tm_mon) + "-" + to_string(ltm->tm_mday);
+    argv[13] = (char*)Time.c_str();  // inDate
+    argv[14] = (char*)"null";        // outDate
     db.insert("express", 13, argv + 0);
 }
 
@@ -127,6 +133,13 @@ void ExpressManager::mark(char* argv[]) {  // 标记取件,参数:pickupID
     MyDB db;
     db.initDB(db.getDBInfo());
     db.exeSQL("use expressDB;");
+
+    time_t now = time(0);
+    tm* ltm = localtime(&now);
+    string Time = to_string(ltm->tm_year + 1900) + "-" +
+                  to_string(1 + ltm->tm_mon) + "-" + to_string(ltm->tm_mday);
     db.exeSQL("update express set picked='yes' where pickupID='" + pickupID +
               "';");
+    db.exeSQL("update express set outDate='" + Time + "' where pickupID='" +
+              pickupID + "';");
 }

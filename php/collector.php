@@ -5,7 +5,7 @@ $argv = ["record", "query", "queryAll", "delete", "mark"];
 echo "PHP: Get POST info"; //开始获取所有POST
 echo '<br>';
 
-for ($i = 0; $i <= 11; $i++) {
+for ($i = 0; $i <= 12; $i++) {
     $post = $_POST['r' . $i];
     $post = str_replace(" ", "_", $post);
     $argv[0] .= ' ' . $post;

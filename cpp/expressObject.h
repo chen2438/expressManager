@@ -23,6 +23,7 @@ class ExpressManager {  // 快件管理
     // 参数: expressID, pickupID, company, weight, receiver,
     // receiverPhone,receiverAddress, receiverZip, sender,
     // senderPhone, senderAddress, senderZip, picked
+    // inDate, outDate
     string getPickupID(char* argv[]);  // 生成取件码, 参数同 record()
     void query(char* argv[]);          // 查询快递
     // 参数: expressID, pickupID, phone

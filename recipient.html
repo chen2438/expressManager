@@ -11,7 +11,8 @@
 <body>
     <script>
         window.addEventListener("load", function () {
-            document.getElementsByName("q0").value = getQuery("phone");
+            document.getElementById("num").value = "123";
+            // document.getElementsByName("q0").value = getQuery("phone");
         });
     </script>
     <form action="php/recipient.php" method="post">
@@ -19,7 +20,7 @@
         <p class="phone">Your Phone: </p>
         <h3>Query Express</h3>
         <label for="q0">Phone Number: </label>
-        <input type="text" name="q0">
+        <input type="text" name="q0" id="num">
         <br><input type="submit" value="Submit">
     </form>
 </body>

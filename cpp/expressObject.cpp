@@ -45,7 +45,7 @@ void ExpressManager::record(char* argv[]) {  // 录入快递
                   to_string(1 + ltm->tm_mon) + "-" + to_string(ltm->tm_mday);
     argv[13] = (char*)Time.c_str();  // inDate
     argv[14] = (char*)"null";        // outDate
-    db.insert("express", 13, argv + 0);
+    db.insert("express", 15, argv + 0);
 }
 
 string ExpressManager::getPickupID(char* argv[]) {  // 生成取件码

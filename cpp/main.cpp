@@ -58,6 +58,11 @@ int main(int argc, char* argv[]) {  // 系统界面传参
         ExpressManager manager;
         manager.queryAll();
         cout << "Querying successful!" << endl;
+    } else if (strcmp(argv[1], "mark") == 0) {  // 标记取件
+        cout << "Start marking." << endl;
+        ExpressManager manager;
+        manager.mark(argv + 2);
+        cout << "Mark successful!" << endl;
     }
     return 0;
 }

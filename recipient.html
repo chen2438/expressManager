@@ -9,78 +9,17 @@
 </head>
 
 <body>
+    <script>
+        window.addEventListener("load", function () {
+            document.getElementByName("qo").value = getQuery("phone");
+        });
+    </script>
     <form action="php/recipient.php" method="post">
         <h2>Recipient Website</h2>
         <p class="phone">Your Phone: </p>
-        <h3>Record Express</h3>
-
-        <label for="rs">SELECT to enable</label>
-        <input type="checkbox" name="rs" value="enable">
-
-        <label for="r0">expressID</label>
-        <input type="text" name="r0" placeholder="more than 4 characters" />
-
-        <label for="r1">pickupID</label>
-        <input type="text" name="r1" value="auto-generated (read only)" readonly />
-
-        <label for="r2">company</label>
-        <input type="text" name="r2" placeholder="please input Abbr. and use capital letters" />
-
-        <label for="r3">weight</label>
-        <input type="text" name="r3" />
-
-        <label for="r4">receiver</label>
-        <input type="text" name="r4" />
-
-        <label for="r5">receiver Phone</label>
-        <input type="text" name="r5" />
-
-        <label for="r6">receiver Address</label>
-        <input type="text" name="r6" />
-
-        <label for="r7">receiver Zip</label>
-        <input type="text" name="r7" />
-
-        <label for="r8">sender</label>
-        <input type="text" name="r8" />
-
-        <label for="r9">sender Phone</label>
-        <input type="text" name="r9" />
-
-        <label for="r10">sender Address</label>
-        <input type="text" name="r10" />
-
-        <label for="r11">sender Zip</label>
-        <input type="text" name="r11" />
-
         <h3>Query Express</h3>
-        <p>[NOTE: Just fill in ANY of the blanks]</p>
-
-        <label for="qs">SELECT to enable</label>
-        <input type="checkbox" name="qs" value="enable">
-
-        <label for="q0">expressID</label>
-        <input type="text" name="q0" placeholder="more than 4 characters" value="null" />
-
-        <label for="q1">pickupID</label>
-        <input type="text" name="q1" value="null" />
-
-        <label for="q2">receiver Phone</label>
-        <input type="text" name="q2" value="null" />
-
-        <h3>Query All Unpicked Express</h3>
-
-        <label for="qas">SELECT to enable</label>
-        <input type="checkbox" name="qas" value="enable">
-
-        <h3>Delete Express</h3>
-
-        <label for="ds">SELECT to enable</label>
-        <input type="checkbox" name="ds" value="enable">
-
-        <label for="d0">expressID</label>
-        <input type="text" name="d0" placeholder="more than 4 characters" />
-
+        <label for="q0">Phone Number: </label>
+        <input type="text" name="q0" value="">
         <br><input type="submit" value="Submit">
     </form>
 </body>

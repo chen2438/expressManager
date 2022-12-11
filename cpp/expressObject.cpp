@@ -38,7 +38,6 @@ void ExpressManager::record(char* argv[]) {  // 录入快递
     db.initDB(db.getDBInfo());
     db.exeSQL("use expressDB;");
     argv[1] = (char*)getPickupID(argv + 0).c_str();
-    argv[12] = (char*)"no";  // picked
     time_t now = time(0);
     tm* ltm = localtime(&now);
     string Time = to_string(ltm->tm_year + 1900) + "-" +

@@ -172,7 +172,7 @@ void ExpressManager::stats(char* argv[]) {  // 信息统计
     //     }
     //     cout << endl;
     // }
-    return;
+    // return;
     for (auto row : res) {  // 统计当日总收取和各公司收取
         // echo(row[13]);
         // echo(Date);

@@ -166,6 +166,13 @@ void ExpressManager::stats(char* argv[]) {  // 信息统计
     res = db.exeSQL("select * from express;");
     int sumIn, sumOut;
     map<string, int> companyIn, companyOut, companyNoPickup;
+    for (auto i : res) {
+        for (auto j : i) {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+    return;
     for (auto row : res) {  // 统计当日总收取和各公司收取
         echo(row[15]);
         echo(Date);

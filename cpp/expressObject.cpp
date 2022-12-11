@@ -118,7 +118,7 @@ int ExpressManager::query(char* argv[]) {
 int ExpressManager::queryAll() {
     // expressID, pickupID, phone,picked=no
     // null,null,null,no
-    char* argv[] = {"null", "null", "null", "no"};
+    char* argv[] = {(char*)"null", (char*)"null", (char*)"null", (char*)"no"};
     query(argv + 0);
     return 1;
 }

@@ -1,10 +1,7 @@
 <?php
 $phone = $_POST['q0'];
-
-$argv = "query null null " + $phone + " null";
-echo $phone;
-echo '<br>';
 // expressID, pickupID, phone, picked
+$argv = "query null null " . $phone . " null";
 $command = "../cpp/main " . escapeshellcmd($argv);
 
 echo "PHP: exec " . $command;

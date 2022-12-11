@@ -5,7 +5,7 @@ $argv = ["record", "query", "queryAll", "delete", "mark"];
 echo "PHP: Get POST info"; //开始获取所有POST
 echo '<br>';
 
-for ($i = 0; $i <= 12; $i++) {
+for ($i = 0; $i <= 14; $i++) {
     $post = $_POST['r' . $i];
     $post = str_replace(" ", "_", $post);
     $argv[0] .= ' ' . $post;
@@ -41,6 +41,9 @@ $command = "";
 for ($i = 0; $i <= 4; $i++) { //判断启用哪个功能
     if ($enable[$i] == 'enable') {
         $command = "../cpp/main " . escapeshellcmd($argv[$i]);
+        if ($i == 0) {
+
+        }
         break;
     }
 }

@@ -2,6 +2,8 @@
 $phone = $_POST['q0'];
 
 $argv = "query null null " + $phone + " null";
+echo $argv;
+echo '<br>';
 // expressID, pickupID, phone, picked
 $command = "../cpp/main " . escapeshellcmd($argv);
 

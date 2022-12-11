@@ -41,6 +41,7 @@ for ($i = 0; $i <= 3; $i++) { //判断启用哪个功能
         if ($i == 1) {
             $command .= "null";
         }
+        echo "debug";
         break;
     }
 }

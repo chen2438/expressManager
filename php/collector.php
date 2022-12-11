@@ -1,6 +1,6 @@
 <?php
 
-$argv = ["record", "query", "queryAll", "delete"];
+$argv = ["record", "query", "queryAll", "delete", "mark"];
 
 echo "PHP: Get POST info"; //开始获取所有POST
 echo '<br>';
@@ -29,15 +29,18 @@ for ($i = 0; $i <= 0; $i++) {
     $argv[3] .= ' ' . $post;
 }
 
-$enable = [$_POST['rs'], $_POST['qs'], $_POST['qas'], $_POST['ds']];
+for ($i = 0; $i <= 1; $i++) {
+    $post = $_POST['m' . $i];
+    $post = str_replace(" ", "_", $post);
+    $argv[4] .= ' ' . $post;
+}
+
+$enable = [$_POST['rs'], $_POST['qs'], $_POST['qas'], $_POST['ds'], $_POST['ms']];
 $command = "";
 
-for ($i = 0; $i <= 3; $i++) { //判断启用哪个功能
+for ($i = 0; $i <= 4; $i++) { //判断启用哪个功能
     if ($enable[$i] == 'enable') {
         $command = "../cpp/main " . escapeshellcmd($argv[$i]);
-        if ($i == 1) {
-            $command .= "null";
-        }
         break;
     }
 }

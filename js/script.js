@@ -9,3 +9,8 @@ function getQuery(property) {
     }
     return -1;
 }
+
+window.addEventListener("load", function () {
+    phone = document.querySelector('.phone');
+    phone.textContent = "Your Phone: " + getQuery("phone");
+});

@@ -2,8 +2,8 @@
 
 class User {  // 人员基类
    public:
-    int signUp(char* argv[]);  // 注册:phone,passwd,userType
-    int logIn(char* argv[]);   // 登录:phone,passwd
+    void signUp(char* argv[]);  // 注册:phone,passwd,userType
+    int logIn(char* argv[]);    // 登录:phone,passwd
 };
 
 class Collector : public User {  // 代收员
@@ -19,14 +19,15 @@ class Recipient : public User {  // 收件人
 
 class ExpressManager {  // 快件管理
    public:
-    int record(char* argv[]);  // 录入快递
+    void record(char* argv[]);  // 录入快递
     // 参数: expressID, pickupID, company, weight, receiver,
     // receiverPhone,receiverAddress, receiverZip, sender,
     // senderPhone, senderAddress, senderZip, picked
     string getPickupID(char* argv[]);  // 生成取件码, 参数同 record()
-    int query(char* argv[]);           // 查询快递
+    void query(char* argv[]);          // 查询快递
     // 参数: expressID, pickupID, phone
-    int queryAll();         // 查询所有未取快递
-    void stats();           // 信息统计，TODO
-    int del(char* argv[]);  // 删除快递,参数:expressID
+    void queryAll();          // 查询所有未取快递
+    void stats();             // 信息统计，TODO
+    void del(char* argv[]);   // 删除快递,参数:expressID
+    void mark(char* argv[]);  // 标记取件,参数:pickupID
 };

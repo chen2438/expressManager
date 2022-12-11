@@ -9,16 +9,9 @@
 </head>
 
 <body>
-    <script type="text/javascript">
-        window.addEventListener("load", function () {
-            phone1 = document.querySelector('.phone1');
-            phone1.textContent = "Your Phone: " + getQuery("phone");
-        });
-    </script>
-
     <form action="php/collector.php" method="post">
         <h2>Collector Website</h2>
-        <p class="phone1">Your Phone: </p>
+        <p class="phone">Your Phone: </p>
         <h3>Record Express</h3>
 
         <label for="rs">SELECT to enable</label>
@@ -88,11 +81,21 @@
         <label for="d0">expressID</label>
         <input type="text" name="d0" placeholder="more than 4 characters" />
 
+        <h3>Mark Express</h3>
+
+        <p>[NOTE: Just fill in ANY of the blanks]</p>
+
+        <label for="ms">SELECT to enable</label>
+        <input type="checkbox" name="ms" value="enable">
+
+        <label for="m0">pickupID</label>
+        <input type="text" name="m0" value="null" />
+
+        <label for="m1">receiver Phone</label>
+        <input type="text" name="m1" value="null" />
+
         <br><input type="submit" value="Submit">
     </form>
-
-
-
 </body>
 
 </html>

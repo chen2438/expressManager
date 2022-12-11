@@ -2,17 +2,16 @@
 
 void echo(string str) { cout << str << endl; }
 
-int User::signUp(char* argv[]) {  // 注册:phone,passwd,userType
+void User::signUp(char* argv[]) {  // 注册:phone,passwd,userType
     MyDB db;
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");
     db.insert("user", 3, argv + 0);
-    return 0;
 }
 
 int User::logIn(char* argv[]) {  // 登录:phone,passwd
     MyDB db;
-    db.initDB(db.getDBInfo());  // host,user,passwd,dbName
+    db.initDB(db.getDBInfo());
     db.exeSQL("use expressDB;");
     string sqlCMD = "select passwd,userType from user where phone = '" +
                     (string)argv[0] + "';";
@@ -34,14 +33,13 @@ int User::logIn(char* argv[]) {  // 登录:phone,passwd
     }
 }
 
-int ExpressManager::record(char* argv[]) {  // 录入快递
+void ExpressManager::record(char* argv[]) {  // 录入快递
     MyDB db;
-    db.initDB(db.getDBInfo());  // host,user,passwd,dbName
+    db.initDB(db.getDBInfo());
     db.exeSQL("use expressDB;");
     argv[1] = (char*)getPickupID(argv + 0).c_str();
     argv[12] = (char*)"no";  // picked="no"
     db.insert("express", 13, argv + 0);
-    return 0;
 }
 
 string ExpressManager::getPickupID(char* argv[]) {  // 生成取件码
@@ -59,7 +57,7 @@ string ExpressManager::getPickupID(char* argv[]) {  // 生成取件码
     return pickupID;
 }
 
-int ExpressManager::query(char* argv[]) {
+void ExpressManager::query(char* argv[]) {
     // 参数: expressID, pickupID, phone, picked
     string expressID = argv[0], pickupID = argv[1], phone = argv[2],
            picked = argv[3];
@@ -98,9 +96,7 @@ int ExpressManager::query(char* argv[]) {
     for (auto i : column_name) {
         echo("<th>" + i[0] + "</th>");
     }
-    echo("</tr></thead>");
-    echo("<tbody>");
-    // cout << "---" << res.size() << "---" << endl;
+    echo("</tr></thead><tbody>");
     for (auto i : res) {
         echo("<tr>");
         for (auto j : i) {
@@ -108,27 +104,29 @@ int ExpressManager::query(char* argv[]) {
         }
         echo("</tr>");
     }
-    echo("</tbody>");
-    echo("</table>");
-    echo("<br>");
+    echo("</tbody></table><br>");
     cout << "Return for PHP end." << endl;
-    return 0;
 }
 
-int ExpressManager::queryAll() {
-    // expressID, pickupID, phone,picked=no
-    // null,null,null,no
+void ExpressManager::queryAll() {
+    // expressID, pickupID, phone, picked=no
     char* argv[] = {(char*)"null", (char*)"null", (char*)"null", (char*)"no"};
     query(argv + 0);
-    return 1;
 }
 
-int ExpressManager::del(char* argv[]) {  // 删除快递,参数:expressID
+void ExpressManager::del(char* argv[]) {  // 删除快递,参数:expressID
     string expressID = argv[0];
     MyDB db;
-    db.initDB(db.getDBInfo());  // host,user,passwd,dbName
+    db.initDB(db.getDBInfo());
     db.exeSQL("use expressDB;");
-    vector<vector<string>> res;
-    res = db.exeSQL("delete from express where expressID='" + expressID + "';");
-    return 1;
+    db.exeSQL("delete from express where expressID='" + expressID + "';");
+}
+
+void ExpressManager::mark(char* argv[]) {  // 标记取件,参数:pickupID
+    string pickupID = argv[0];
+    MyDB db;
+    db.initDB(db.getDBInfo());
+    db.exeSQL("use expressDB;");
+    db.exeSQL("update express set picked='yes' where pickupID='" + pickupID +
+              "';");
 }

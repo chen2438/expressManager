@@ -45,6 +45,7 @@ int main(int argc, char* argv[]) {  // 系统界面传参
     } else if (strcmp(argv[1], "query") == 0) {  // 查询
         cout << "Start querying." << endl;
         ExpressManager manager;
+        argv[5] = (char*)"null";
         manager.query(argv + 2);
         cout << "Querying successful!" << endl;
     } else if (strcmp(argv[1], "delete") == 0) {  // 删除

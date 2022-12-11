@@ -1,9 +1,6 @@
 <?php
 
-$argv_record = "record";
-$argv_query = "query";
-$argv_queryAll = "queryAll";
-$argv_delete = "delete";
+$argv = ["record", "query", "queryAll", "delete"];
 
 echo "PHP: Get POST info"; //开始获取所有POST
 echo '<br>';
@@ -11,34 +8,35 @@ echo '<br>';
 for ($i = 0; $i <= 11; $i++) {
     $post = $_POST['r' . $i];
     $post = str_replace(" ", "_", $post);
-    $argv_record .= ' ' . $post;
+    $argv[0] .= ' ' . $post;
 }
 
 for ($i = 0; $i <= 2; $i++) {
     $post = $_POST['q' . $i];
     $post = str_replace(" ", "_", $post);
-    $argv_query .= ' ' . $post;
+    $argv[1] .= ' ' . $post;
 }
 
 for ($i = 0; $i <= 0; $i++) {
     $post = $_POST['qa' . $i];
     $post = str_replace(" ", "_", $post);
-    $argv_queryAll .= ' ' . $post;
+    $argv[2] .= ' ' . $post;
 }
 
 for ($i = 0; $i <= 0; $i++) {
     $post = $_POST['d' . $i];
     $post = str_replace(" ", "_", $post);
-    $argv_delete .= ' ' . $post;
+    $argv[3] .= ' ' . $post;
 }
 
 $enable = [$_POST['rs'], $_POST['qs'], $_POST['qas'], $_POST['ds']];
-echo $enable;
+// echo $enable[2];
+echo "<br>";
 $command = "";
 
 for ($i = 0; $i <= 3; $i++) { //判断启用哪个功能
     if ($enable[$i] == 'enable') {
-        $command = "../cpp/main " . escapeshellcmd($argv);
+        $command = "../cpp/main " . escapeshellcmd($argv[$i]);
         if ($i == 1) {
             $command .= "null";
         }

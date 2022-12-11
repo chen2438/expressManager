@@ -110,7 +110,7 @@ void ExpressManager::query(char* argv[]) {
         echo("</tr>");
     }
     echo("</tbody></table><br>");
-    cout << "Return for PHP end." << endl;
+    echo("Return for PHP end.");
 }
 
 void ExpressManager::queryAll() {

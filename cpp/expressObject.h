@@ -26,8 +26,7 @@ class ExpressManager {  // 快件管理
     string getPickupID(char* argv[]);  // 生成取件码, 参数同 record()
     int query(char* argv[]);           // 查询快递
     // 参数: expressID, pickupID, phone
-    int queryAll(char* argv[]);  // 查询所有快递, 参数为空(test) TODO
-    void stats();                // 信息统计，TODO
-    int del(char* argv[]);       // 删除快递,参数:expressID
-    int query
+    int queryAll();         // 查询所有未取快递
+    void stats();           // 信息统计，TODO
+    int del(char* argv[]);  // 删除快递,参数:expressID
 };

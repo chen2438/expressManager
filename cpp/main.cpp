@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {  // 系统界面传参
     } else if (strcmp(argv[1], "queryAll") == 0) {  // 查询所有未取
         cout << "Start querying." << endl;
         ExpressManager manager;
-        manager.queryAll(argv + 2);
+        manager.queryAll();
         cout << "Querying successful!" << endl;
     }
     return 0;

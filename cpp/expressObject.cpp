@@ -61,8 +61,8 @@ string ExpressManager::getPickupID(char* argv[]) {  // 生成取件码
 
 int ExpressManager::query(char* argv[]) {
     // 参数: expressID, pickupID, phone, picked
-    string expressID = argv[0], pickupID = argv[1], phone = argv[2];
-    string picked = argv[3];
+    string expressID = argv[0], pickupID = argv[1], phone = argv[2],
+           picked = argv[3];
     MyDB db;
     db.initDB(db.getDBInfo());  // host,user,passwd,dbName
     db.exeSQL("use expressDB;");
@@ -115,9 +115,10 @@ int ExpressManager::query(char* argv[]) {
     return 0;
 }
 
-int ExpressManager::queryAll(char* argv[]) {
+int ExpressManager::queryAll() {
     // expressID, pickupID, phone,picked=no
     // null,null,null,no
+    char* argv[] = {"null", "null", "null", "no"};
     query(argv + 0);
     return 1;
 }

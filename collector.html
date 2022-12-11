@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Express Managert: Collector Page</title>
+    <title>Express Manager: Collector Page</title>
     <link href="css/style.css" rel="stylesheet">
     <script src="js/script.js" type="text/javascript"></script>
 </head>
@@ -12,135 +12,85 @@
     <script type="text/javascript">
         window.addEventListener("load", function () {
             phone1 = document.querySelector('.phone1');
-            phone2 = document.querySelector('.phone2');
             phone1.textContent = "Your Phone: " + getQuery("phone");
-            phone2.textContent = phone1.textContent;
         });
     </script>
-    <form action="php/record.php" method="post">
-        <ul>
-            <li>
-                <h3>Collector: Record Express</h3>
-            </li>
-            <li>
-                <div class="phone1">Your Phone: </div>
-            </li>
-            <li>
-                <label for="r0">expressID</label>
-                <input type="text" name="r0" placeholder="more than 4 characters" />
-            </li>
-            <li>
-                <label for="r1">pickupID</label>
-                <input type="text" name="r1" value="auto-generated (read only)" readonly />
-            </li>
-            <li>
-                <label for="r2">company</label>
-                <input type="text" name="r2" placeholder="please input Abbr. and use capital letters" />
-            </li>
-            <li>
-                <label for="r3">weight</label>
-                <input type="text" name="r3" />
-            </li>
-            <li>
-                <label for="r4">receiver</label>
-                <input type="text" name="r4" />
-            </li>
-            <li>
-                <label for="r5">receiver Phone</label>
-                <input type="text" name="r5" />
-            </li>
-            <li>
-                <label for="r6">receiver Address</label>
-                <input type="text" name="r6" />
-            </li>
-            <li>
-                <label for="r7">receiver Zip</label>
-                <input type="text" name="r7" />
-            </li>
-            <li>
-                <label for="r8">sender</label>
-                <input type="text" name="r8" />
-            </li>
-            <li>
-                <label for="r9">sender Phone</label>
-                <input type="text" name="r9" />
-            </li>
-            <li>
-                <label for="r10">sender Address</label>
-                <input type="text" name="r10" />
-            </li>
-            <li>
-                <label for="r11">sender Zip</label>
-                <input type="text" name="r11" />
-            </li>
-            <li class="button">
-                <button type="submit">confirm</button>
-            </li>
-        </ul>
+
+    <form action="php/collector.php" method="post">
+        <h2>Collector Website</h2>
+        <p class="phone1">Your Phone: </p>
+        <h3>Record Express</h3>
+
+        <label for="rs">SELECT to enable</label>
+        <input type="checkbox" name="subscribe" value="enable">
+
+        <label for="r0">expressID</label>
+        <input type="text" name="r0" placeholder="more than 4 characters" />
+
+        <label for="r1">pickupID</label>
+        <input type="text" name="r1" value="auto-generated (read only)" readonly />
+
+        <label for="r2">company</label>
+        <input type="text" name="r2" placeholder="please input Abbr. and use capital letters" />
+
+        <label for="r3">weight</label>
+        <input type="text" name="r3" />
+
+        <label for="r4">receiver</label>
+        <input type="text" name="r4" />
+
+        <label for="r5">receiver Phone</label>
+        <input type="text" name="r5" />
+
+        <label for="r6">receiver Address</label>
+        <input type="text" name="r6" />
+
+        <label for="r7">receiver Zip</label>
+        <input type="text" name="r7" />
+
+        <label for="r8">sender</label>
+        <input type="text" name="r8" />
+
+        <label for="r9">sender Phone</label>
+        <input type="text" name="r9" />
+
+        <label for="r10">sender Address</label>
+        <input type="text" name="r10" />
+
+        <label for="r11">sender Zip</label>
+        <input type="text" name="r11" />
+
+        <h3>Query Express</h3>
+        <p>[NOTE: Just fill in ANY of the blanks]</p>
+
+        <label for="qs">SELECT to enable</label>
+        <input type="checkbox" name="subscribe" value="enable">
+
+        <label for="q0">expressID</label>
+        <input type="text" name="q0" placeholder="more than 4 characters" value="null" />
+
+        <label for="q1">pickupID</label>
+        <input type="text" name="q1" value="null" />
+
+        <label for="q2">receiver Phone</label>
+        <input type="text" name="q2" value="null" />
+
+        <h3>Query All Unpicked Express</h3>
+
+        <label for="qas">SELECT to enable</label>
+        <input type="checkbox" name="subscribe" value="enable">
+
+        <h3>Delete Express</h3>
+
+        <label for="ds">SELECT to enable</label>
+        <input type="checkbox" name="subscribe" value="enable">
+
+        <label for="d0">expressID</label>
+        <input type="text" name="d0" placeholder="more than 4 characters" />
+
+        <br><input type="submit" value="Submit">
     </form>
 
-    <br>
-
-    <form action="php/query.php" method="post">
-        <ul>
-            <li>
-                <h3>Collector: Query Express</h3>
-            </li>
-            <li>
-                <p>[NOTE: Just fill in ANY of the blanks]</p>
-            </li>
-            <li>
-                <div class="phone2">Your Phone: </div>
-            </li>
-            <li>
-                <label for="r0">expressID</label>
-                <input type="text" name="r0" placeholder="more than 4 characters" value="null" />
-            </li>
-            <li>
-                <label for="r1">pickupID</label>
-                <input type="text" name="r1" value="null" />
-            </li>
-            <li>
-                <label for="r2">receiver Phone</label>
-                <input type="text" name="r2" value="null" />
-            </li>
-            <li class="button">
-                <button type="submit">confirm</button>
-            </li>
-        </ul>
-    </form>
-
-    <br>
-
-    <form action="php/queryAll.php" method="post">
-        <ul>
-            <li>
-                <h3>Collector: Query All Express</h3>
-            </li>
-            <li class="button">
-                <button type="submit">start query</button>
-            </li>
-        </ul>
-    </form>
-
-    <br>
-
-    <form action="php/del.php" method="post">
-        <ul>
-            <li>
-                <h3>Collector: Delete Express</h3>
-            </li>
-            <li>
-                <label for="r0">expressID</label>
-                <input type="text" name="r0" placeholder="more than 4 characters" />
-            </li>
-            <li class="button">
-                <button type="submit">confirm</button>
-            </li>
-        </ul>
-    </form>
-
-    <br>
 
 
 </body>

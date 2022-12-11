@@ -10,47 +10,30 @@
 
 <body>
     <form action="php/signUp.php" method="post">
-        <ul>
-            <li>
-                <h3>Sign Up</h3>
-            </li>
-            <li>
-                <label for="phone">Phone:</label>
-                <input type="text" name="phone" class="phone" />
-            </li>
-            <li>
-                <label for="passwd">Password:</label>
-                <input type="text" name="passwd" />
-            </li>
-            <li>
-                <label for="userType">User Type:</label>
-                <input type="text" name="userType" placeholder="'0' for recipient, or admin password for collector" />
-            </li>
-            <li class="button">
-                <button type="submit">confirm</button>
-            </li>
-        </ul>
+        <h3>Sign Up</h3>
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" class="phone" />
+
+        <label for="passwd">Password:</label>
+        <input type="text" name="passwd" />
+
+        <label for="userType">User Type:</label>
+        <input type="text" name="userType" placeholder="'0' for recipient, or admin password for collector" />
+
+        <br><button type="submit">confirm</button>
     </form>
 
     <br>
 
     <form action="php/logIn.php" method="post">
-        <ul>
-            <li>
-                <h3>Log In</h3>
-            </li>
-            <li>
-                <label for="phone">Phone:</label>
-                <input type="text" name="phone" />
-            </li>
-            <li>
-                <label for="passwd">Password:</label>
-                <input type="text" name="passwd" />
-            </li>
-            <li class="button">
-                <button type="submit">confirm</button>
-            </li>
-        </ul>
+        <h3>Log In</h3>
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" />
+
+        <label for="passwd">Password:</label>
+        <input type="text" name="passwd" />
+
+        <br><button type="submit">confirm</button>
     </form>
 
 </body>

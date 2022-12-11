@@ -30,8 +30,6 @@ for ($i = 0; $i <= 0; $i++) {
 }
 
 $enable = [$_POST['rs'], $_POST['qs'], $_POST['qas'], $_POST['ds']];
-// echo $enable[2];
-echo "<br>";
 $command = "";
 
 for ($i = 0; $i <= 3; $i++) { //判断启用哪个功能
@@ -40,7 +38,6 @@ for ($i = 0; $i <= 3; $i++) { //判断启用哪个功能
         if ($i == 1) {
             $command .= "null";
         }
-        // echo "debug";
         break;
     }
 }

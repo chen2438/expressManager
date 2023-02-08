@@ -73,6 +73,21 @@ server {
 
 参考:https://github.com/chen2438/docs/blob/main/debian/d-mysql.md
 
+### 配置MySQL登陆信息
+
+```bash
+cd /var/www/html
+vim connectDB.in
+```
+
+填入你的 MySQL 登陆信息
+
+```bash
+localhost
+root
+root密码
+```
+
 ### 配置 C++ 连接 MySQL
 
 ```bash
@@ -105,3 +120,6 @@ git clone https://github.com/chen2438/expressManager.git
 g++ expressManager/cpp/main.cpp  -std=c++17 -o expressManager/cpp/main `mysql_config --cflags --libs` && chmod 777 -R expressManager/ 
 ```
 
+### 访问
+
+`http://IP地址/expressManager`

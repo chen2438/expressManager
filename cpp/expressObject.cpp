@@ -33,6 +33,36 @@ int User::logIn(char* argv[]) {  // 登录:phone,passwd
     }
 }
 
+void Collector::changeSuperPassword(
+    char* argv[]) {  // 修改初始管理员权限密码,参数:密码
+    adminPasswd = argv[0];
+    echo("Password has been changed.");
+}
+
+void Collector::changePassword(
+    char* argv[]) {  // 修改密码,参数:管理员权限密码,新密码,手机号
+    if (adminPasswd != string(argv[0])) {
+        echo("adminPassword wrong, please try again.");
+    }
+    string newpasswd = argv[1], newphone = argv[2];
+    MyDB db;
+    db.initDB(db.getDBInfo());
+    db.exeSQL("use expressDB;");
+    db.exeSQL("update user set passwd = '" + newpasswd + "' where phone = '" +
+              newphone + "';");
+    echo("Password has been changed.");
+}
+
+void Recipient::changePassword(char* argv[]) {  // 修改密码,参数:新密码,手机号
+    string newpasswd = argv[0], newphone = argv[1];
+    MyDB db;
+    db.initDB(db.getDBInfo());
+    db.exeSQL("use expressDB;");
+    db.exeSQL("update user set passwd = '" + newpasswd + "' where phone = '" +
+              newphone + "';");
+    echo("Password has been changed.");
+}
+
 void ExpressManager::record(char* argv[]) {  // 录入快递
     MyDB db;
     db.initDB(db.getDBInfo());
@@ -164,7 +194,7 @@ void ExpressManager::stats(char* argv[]) {  // 信息统计
     db.exeSQL("use expressDB;");
     vector<vector<string>> res;
     res = db.exeSQL("select * from express;");
-    int sumIn, sumOut;
+    int sumIn = 0, sumOut = 0;
     map<string, int> companyIn, companyOut, companyNoPickup;
     for (auto row : res) {  // 统计当日总收取和各公司收取
         if (row[13] == Date) {

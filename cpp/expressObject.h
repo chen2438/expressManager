@@ -9,12 +9,13 @@ class User {  // 人员基类
 class Collector : public User {  // 代收员
    public:
     static const char* adminPasswd;  // 初始管理员权限密码
-    void changeSuperPassword();      // 修改初始管理员权限密码,TODO
-    void changePassword();           // 修改密码,TODO
+    void changeSuperPassword(char* argv[]);  // 修改初始管理员权限密码,参数:密码
+    void changePassword(
+        char* argv[]);  // 修改密码,参数:管理员权限密码,新密码,手机号
 };
 
-class Recipient : public User {  // 收件人
-    void changePassword();       // 修改密码,TODO
+class Recipient : public User {         // 收件人
+    void changePassword(char* argv[]);  // 修改密码,参数:密码,手机号
 };
 
 class ExpressManager {  // 快件管理

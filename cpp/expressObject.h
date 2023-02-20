@@ -15,7 +15,7 @@ class Collector : public User {  // 代收员
 };
 
 class Recipient : public User {         // 收件人
-    void changePassword(char* argv[]);  // 修改密码,参数:密码,手机号
+    void changePassword(char* argv[]);  // 修改密码,参数:新密码,手机号
 };
 
 class ExpressManager {  // 快件管理

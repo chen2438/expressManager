@@ -1,10 +1,10 @@
-# expressManager
+# expressManager-帮助文档
 
 [Releases](https://github.com/chen2438/expressManager/releases)
 
-## 安装
+## 安装与环境配置
 
-以 Debian 10 为例
+以 Debian 10 为例, root 权限执行.
 
 ### 安装 PHP
 

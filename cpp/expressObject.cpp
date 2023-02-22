@@ -218,8 +218,8 @@ void ExpressManager::stats(char* argv[]) {  // 信息统计
             }
         }
     }
-    echo("当日总取件:" + to_string(sumIn));
-    echo("当日总收件:" + to_string(sumOut));
+    echo("当日总收件:" + to_string(sumIn));
+    echo("当日总取件:" + to_string(sumOut));
     echo("各快递公司情况:");
     for (auto PSI : companyIn) {
         echo("快递公司/收件/取件/未取件:" + PSI.first + "/" +
